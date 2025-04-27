@@ -1,1 +1,44 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <div class="navbar-brand">
+      <a routerLink="/">Car Rental & Purchase</a>
+    </div>
+  
+    <div class="navbar-links" *ngIf="isLoggedIn(); else guestLinks">
+      <ng-container [ngSwitch]="getUserRole()">
+        
+        <div *ngSwitchCase="'admin'">
+          <a href="/admin/dashboard">Dashboard</a>
+          <a href="/admin/profile">Profile</a>
+          <button (click)="logout()">Logout</button>
+        </div>
+  
+        <div *ngSwitchCase="'client'">
+          <a href="/client/dashboard">Dashboard</a>
+          <a href="/client/profile">Profile</a>
+          <a href="/client/manage-purchases">Purchase</a>
+          <a href="/client/manage-rentals">Rental</a>
+          <a href="/client/add-rental">add-rental</a>
+          <a href="/client/add-purchase">add-purchase</a>
+          <button (click)="logout()">Logout</button>
+        </div>
+  
+        <div *ngSwitchCase="'customer'">
+          <a href="/customer/dashboard">Dashboard</a>
+          <a href="/customer/profile">Profile</a>
+          <a href="/customer/browse-purchase">Purchase</a>
+          <a href="/customer/browse-rentals">Rental</a>
+          <a href="/customer/my-rentals">my-rentals</a>
+          <a href="/customer/my-purchase">my-purchase</a>
+          <button (click)="logout()">Logout</button>
+        </div>
+  
+      </ng-container>
+    </div>
+  
+    <ng-template #guestLinks>
+      <div>
+        <a href="/auth/login">Login</a>
+        <a href="/auth/signup">Sign Up</a>
+      </div>
+    </ng-template>
+  </nav>

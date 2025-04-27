@@ -1,1 +1,37 @@
-<p>customer-dashboard works!</p>
+<!-- Rent Tab -->
+<ng-container *ngIf="activeTab === 'rent'">
+    <div @slideAnimation class="row">
+      <div *ngFor="let car of rentalCars" class="col-md-4 mb-4">
+        <div class="card">
+          <img [src]="car.image" class="card-img-top" alt="Car Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ car.name }}</h5>
+            <p class="card-text">Client: {{ car.clientName }}</p>
+            <p class="card-text">Daily Rate: ${{ car.dailyRate }}</p>
+            <button class="btn btn-success mt-2" (click)="confirmRent(car)">
+              Rent Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  
+  <!-- Purchase Tab -->
+  <ng-container *ngIf="activeTab === 'purchase'">
+    <div @slideAnimation class="row">
+      <div *ngFor="let car of purchasableCars" class="col-md-4 mb-4">
+        <div class="card">
+          <img [src]="car.image" class="card-img-top" alt="Car Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ car.name }}</h5>
+            <p class="card-text">Client: {{ car.clientName }}</p>
+            <p class="card-text">Asking Price: ${{ car.askingPrice }}</p>
+            <button class="btn btn-primary mt-2" (click)="confirmPurchase(car)">
+              Purchase Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>

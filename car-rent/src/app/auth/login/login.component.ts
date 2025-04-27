@@ -19,8 +19,9 @@ export class LoginComponent {
 
   onLogin() {
     
-    const result = this.local.getusers(this.email, this.password);
-    this.errorMessage = result || '';  
+    const result = this.local.getItem(this.email) && this.local.getItem( this.password);
+
+      
     
   }
 }

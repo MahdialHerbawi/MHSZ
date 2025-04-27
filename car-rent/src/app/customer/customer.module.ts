@@ -21,7 +21,8 @@ import { MyPurchasesComponent } from './my-purchases/my-purchases.component';
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    
   ]
 })
 export class CustomerModule { }

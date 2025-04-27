@@ -1,0 +1,10 @@
+.tabs-buttons .btn.active {
+    background-color: #007bff;
+    color: white;
+  }
+  .card {
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.03);
+  }

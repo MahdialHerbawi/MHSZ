@@ -14,6 +14,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[NavbarComponent]
 })
 export class SharedModule { }
