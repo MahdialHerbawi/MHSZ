@@ -18,8 +18,11 @@ export class LoginComponent {
   }
 
   onLogin() {
+    this.local.login(this.email,this.password)
+    this.errorMessage='invald email or password'
+    //const result:any = this.local.getItem(this.email) && this.local.getItem( this.password);
+    //this.errorMessage=JSON.parse(result);
     
-    const result = this.local.getItem(this.email) && this.local.getItem( this.password);
 
       
     

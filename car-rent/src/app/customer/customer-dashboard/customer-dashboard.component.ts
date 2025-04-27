@@ -13,24 +13,13 @@ import { LocalStorageService } from '../../service/local-storage.service';
   ]
 })
 export class CustomerDashboardComponent {
-
+  car: string = '';
+  yers: string = '';
+  pricerent: string = '';
+  role: string = '';
   activeTab: 'rent' | 'purchase' = 'rent'; // <- Default tab when page loads
   
-  rentalCars = [
-    {
-      name: 'Toyota Corolla',
-      clientName: 'Client A',
-      dailyRate: 50,
-      image: 'assets/images/toyota.jpg'
-    },
-    {
-      name: 'Honda Civic',
-      clientName: 'Client B',
-      dailyRate: 55,
-      image: 'assets/images/honda.jpg'
-    }
-    // Add more cars here
-  ];
+  
 
   purchasableCars = [
     {
@@ -49,8 +38,39 @@ export class CustomerDashboardComponent {
   ];
 
   constructor(private local:LocalStorageService,private router: Router
-  ) {}
+  ) {
+   
+  }
+  rentalCars = [
+    
+   {
+      name: 'Toyota Corolla',
+      clientName: 'Client A',
+      dailyRate: 50,
+      image: 'assets/images/toyota.jpg'
+    },
+    {
+      name: 'Honda Civic',
+      clientName: 'Client B',
+      dailyRate: 55,
+      image: 'assets/images/honda.jpg'
+    },
+    {
+      name: 'Toyota Corolla1',
+      clientName: 'Client A',
+      dailyRate: 50,
+      image: 'assets/images/toyota.jpg'
+    },
+    {
+      name: 'Honda Civic2',
+      clientName: 'Client B',
+      dailyRate: 55,
+      image: 'assets/images/honda.jpg'
+    }
 
+    // Add more cars here
+  ];
+  
   switchTab(tab: 'rent' | 'purchase') {
     this.activeTab = tab;
   }

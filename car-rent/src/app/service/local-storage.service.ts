@@ -16,6 +16,13 @@ export class LocalStorageService {
         { email: 'customer@example.com', password: 'customer123', role: 'customer' }
       ]));
     }
+    if (!localStorage.getItem('car')) {
+      localStorage.setItem('car', JSON.stringify([
+        { car: 'bice', yers: '2020',pricerent:'25jd', role: 'rent' },
+        { car: 'bice2', yers: '2021',pricerent:'27jd', role: 'rent' },
+        { car: 'bice3', yers: '2022',pricerent:'26jd', role: 'rent' },
+      ]));
+    }
   }
 
   /** ========== Generic LocalStorage Methods ========== */
@@ -69,6 +76,7 @@ export class LocalStorageService {
   getRole(): string | null {
     return localStorage.getItem('role');
   }
+
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
