@@ -1,44 +1,34 @@
-<nav class="navbar">
-    <div class="navbar-brand">
-      <a routerLink="/">Car Rental & Purchase</a>
-    </div>
-  
-    <div class="navbar-links" *ngIf="isLoggedIn(); else guestLinks">
-      <ng-container [ngSwitch]="getUserRole()">
-        
-        <div *ngSwitchCase="'admin'">
-          <a href="/admin/dashboard">Dashboard</a>
-          <a href="/admin/profile">Profile</a>
-          <button (click)="logout()">Logout</button>
-        </div>
-  
-        <div *ngSwitchCase="'client'">
-          <a href="/client/dashboard">Dashboard</a>
-          <a href="/client/profile">Profile</a>
-          <a href="/client/manage-purchases">Purchase</a>
-          <a href="/client/manage-rentals">Rental</a>
-          <a href="/client/add-rental">add-rental</a>
-          <a href="/client/add-purchase">add-purchase</a>
-          <button (click)="logout()">Logout</button>
-        </div>
-  
-        <div *ngSwitchCase="'customer'">
-          <a href="/customer/dashboard">Dashboard</a>
-          <a href="/customer/profile">Profile</a>
-          <a href="/customer/browse-purchase">Purchase</a>
-          <a href="/customer/browse-rentals">Rental</a>
-          <a href="/customer/my-rentals">my-rentals</a>
-          <a href="/customer/my-purchase">my-purchase</a>
-          <button (click)="logout()">Logout</button>
-        </div>
-  
-      </ng-container>
-    </div>
-  
-    <ng-template #guestLinks>
-      <div>
-        <a href="/auth/login">Login</a>
-        <a href="/auth/signup">Sign Up</a>
+<nav class="navbar" *ngIf="shouldShowNavbar()">
+  <div class="navbar-brand">
+    <a [routerLink]="getDashboardLink()">
+      <img src="/Car_Logo_White-Photoroom.png" alt="Car Rental Logo" class="logo" />
+    </a>
+  </div>
+
+  <div class="navbar-links" *ngIf="isLoggedIn()">
+    <ng-container [ngSwitch]="getUserRole()">
+      <div *ngSwitchCase="'admin'" class="link-group">
+        <a routerLink="/admin/profile" class="nav-link">Profile</a>
+        <button (click)="logout()" class="logout-button">Sign Out</button>
       </div>
-    </ng-template>
-  </nav>
+
+      <div *ngSwitchCase="'client'" class="link-group">
+        <a routerLink="/client/profile" class="nav-link">Profile</a>
+        <a routerLink="/client/manage-purchases" class="nav-link">Purchase</a>
+        <a routerLink="/client/manage-rentals" class="nav-link">Rental</a>
+        <a routerLink="/client/add-rental" class="nav-link">Add Rental</a>
+        <a routerLink="/client/add-purchase" class="nav-link">Add Purchase</a>
+        <button (click)="logout()" class="logout-button">Sign Out</button>
+      </div>
+
+      <div *ngSwitchCase="'customer'" class="link-group">
+        <a routerLink="/customer/profile" class="nav-link">Profile</a>
+        <a routerLink="/customer/browse-purchase" class="nav-link">Purchase</a>
+        <a routerLink="/customer/browse-rentals" class="nav-link">Rental</a>
+        <a routerLink="/customer/my-rentals" class="nav-link">My Rentals</a>
+        <a routerLink="/customer/my-purchase" class="nav-link">My Purchase</a>
+        <button (click)="logout()" class="logout-button">Sign Out</button>
+      </div>
+    </ng-container>
+  </div>
+</nav>

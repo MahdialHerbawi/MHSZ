@@ -1,0 +1,58 @@
+@import '../../../styles.scss';
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: #111827; /* Dark background */
+  }
+  
+  .navbar-brand img.logo {
+    height: 70px; /* ✅ Shrinks the logo nicely */
+    width: auto;
+  }
+  
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: $font-family-title;
+  }
+  
+  .link-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Style for each link */
+  .nav-link {
+    color: $text-secondary;
+    text-decoration: none; /* ✅ Removes underline */
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: $hover-blue; /* Light blue hover color */
+  }
+  
+  /* Style for sign out button */
+  .logout-button {
+    background: transparent;
+    border: 1px solid $hover-blue; /* Light blue border */
+    color: $hover-blue; /* Light blue text color */
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: $hover-blue; /* Light blue background on hover */
+    color: #111827; /* Invert text color on hover */
+  }
+  
