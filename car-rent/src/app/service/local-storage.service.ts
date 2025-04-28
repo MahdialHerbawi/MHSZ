@@ -21,6 +21,9 @@ export class LocalStorageService {
         { carname: 'bice', yers: '2020',pricerent:'25jd', type: 'rent' },
         { carname: 'bice2', yers: '2021',pricerent:'27jd', type: 'rent' },
         { carname: 'bice3', yers: '2022',pricerent:'26jd', type: 'rent' },
+        { carname: 'toyota camry', yers: '2024',pricepurchases:'26000jd', type: 'purchases' },
+        { carname: 'toyota corala', yers: '2024',pricepurchases:'22000jd', type: 'purchases' },
+        { carname: 'mazda zoom 3', yers: '2015',pricepurchases:'9000jd', type: 'purchases' },
       ]));
     }
   }

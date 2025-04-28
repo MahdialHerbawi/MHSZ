@@ -1,39 +1,53 @@
-<!-- Rent Tab -->
- 
-<ng-container *ngIf="activeTab === 'rent'">
-    <div @slideAnimation class="row">
-      <div *ngFor="let car of rentalCars" class="col-md-4 mb-4">
-        <div class="card">
-          <img [src]="car.image" class="card-img-top" alt="Car Image">
-          <div class="card-body">
-            <h5 class="card-title">{{ car.carname }}</h5>
-            <p class="card-text">yers: {{ car.yers }}</p>
-            <p class="card-text">Daily Rate: ${{ car.pricerent }}</p>
-            <p class="card-text">type :{{car.type}}</p>
-            <button class="btn btn-success mt-2" (click)="confirmRent(car)">
-              Rent Now
-            </button>
+<div class="container mt-4">
+  <div class="tabs-buttons mb-3 text-center">
+    <button class="btn btn-outline-primary me-2" 
+            [class.active]="activeTab === 'rent'" 
+            (click)="switchTab('rent')">
+      Rent
+    </button>
+    <button class="btn btn-outline-primary" 
+            [class.active]="activeTab === 'purchase'" 
+            (click)="switchTab('purchase')">
+      Purchase
+    </button>
+  </div>
+
+  <div class="tab-content position-relative" style="min-height: 400px;">
+    <ng-container *ngIf="activeTab === 'rent'" >
+      <div  class="row">
+        <div *ngFor="let car of rentalCars" class="col-md-4 mb-4">
+          <div *ngIf="car.type==='rent'" class="card">
+            <img [src]="car.image" class="card-img-top" alt="Car Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ car.carname }}</h5>
+              <p class="card-text">Client: {{ car.yers }}</p>
+              <p class="card-text">Daily Rate: ${{ car.pricerent }}</p>
+              <button class="btn btn-success mt-2" (click)="confirmRent(car)">
+                Rent Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </ng-container>
-  
-  <!-- Purchase Tab -->
-  <ng-container *ngIf="activeTab === 'purchase'">
-    <div @slideAnimation class="row">
-      <div *ngFor="let car of purchasableCars" class="col-md-4 mb-4">
-        <div class="card">
-          <img [src]="car.image" class="card-img-top" alt="Car Image">
-          <div class="card-body">
-            <h5 class="card-title">{{ car.name }}</h5>
-            <p class="card-text">Client: {{ car.clientName }}</p>
-            <p class="card-text">Asking Price: ${{ car.askingPrice }}</p>
-            <button class="btn btn-primary mt-2" (click)="confirmPurchase(car)">
-              Purchase Now
-            </button>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'purchase'">
+      <div class="row">
+        <div *ngFor="let car of purchasableCars" class="col-md-4 mb-4">
+          <div *ngIf="car.type==='purchases'" class="card">
+            <img [src]="car.image" class="card-img-top" alt="Car Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ car.carname }}</h5>
+              <p class="card-text">Client: {{ car.yers }}</p>
+              <p class="card-text">Asking Price: ${{ car.pricepurchases }}</p>
+              <button class="btn btn-primary mt-2" (click)="confirmPurchase(car)">
+                Purchase Now
+              </button>
+    
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
+</div>

@@ -1,1 +1,22 @@
-<p>manage-cars works!</p>
+<div class="rented-cars-section">
+    <h2>Rented Cars</h2>
+    <div *ngFor="let car of rentedCars" class="rented-car-card">
+      <h3>{{ car.carname }}</h3>
+      <p><strong>Customer:</strong> {{ car.customerName }}</p>
+      <p><strong>Rent Date:</strong> {{ car.rentDate }}</p>
+      <p><strong>Return Date:</strong> {{ car.returnDate }}</p>
+      <p><strong>Price:</strong> {{ car.price }}</p>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <div class="purchased-cars-section">
+    <h2>Purchased Cars</h2>
+    <div *ngFor="let car of purchasedCars" class="purchased-car-card">
+      <h3>{{ car.carname }}</h3>
+      <p><strong>Customer:</strong> {{ car.customerName }}</p>
+      <p><strong>Purchase Date:</strong> {{ car.purchaseDate }}</p>
+      <p><strong>Price:</strong> {{ car.price }}</p>
+    </div>
+  </div>

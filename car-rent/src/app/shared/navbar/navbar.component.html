@@ -6,29 +6,30 @@
     <div class="navbar-links" *ngIf="isLoggedIn(); else guestLinks">
       <ng-container [ngSwitch]="getUserRole()">
         
-        <div *ngSwitchCase="'admin'">
-          <a href="/admin/dashboard">Dashboard</a>
-          <a href="/admin/profile">Profile</a>
+        <div style="margin: 10PX;" *ngSwitchCase="'admin'">
+          <a style="margin: 10PX;" href="/admin/dashboard">Dashboard</a>
+          <a style="margin: 10PX;"  href="/admin/profile">Profile</a>
+          <a style="margin: 10PX;"  href="/admin/manage-cars">Car Rental & Purchase</a>
           <button (click)="logout()">Logout</button>
         </div>
   
         <div *ngSwitchCase="'client'">
-          <a href="/client/dashboard">Dashboard</a>
-          <a href="/client/profile">Profile</a>
-          <a href="/client/manage-purchases">Purchase</a>
-          <a href="/client/manage-rentals">Rental</a>
-          <a href="/client/add-rental">add-rental</a>
-          <a href="/client/add-purchase">add-purchase</a>
+          <a style="margin: 10PX;"  href="/client/dashboard">Dashboard</a>
+          <a style="margin: 10PX;"  href="/client/profile">Profile</a>
+          <a style="margin: 10PX;"  href="/client/manage-purchases">Purchase</a>
+          <a style="margin: 10PX;"  href="/client/manage-rentals">Rental</a>
+          <a style="margin: 10PX;"  href="/client/add-rental">add-rental</a>
+          <a style="margin: 10PX;"  href="/client/add-purchase">add-purchase</a>
           <button (click)="logout()">Logout</button>
         </div>
   
         <div *ngSwitchCase="'customer'">
-          <a href="/customer/dashboard">Dashboard</a>
-          <a href="/customer/profile">Profile</a>
-          <a href="/customer/browse-purchase">Purchase</a>
-          <a href="/customer/browse-rentals">Rental</a>
-          <a href="/customer/my-rentals">my-rentals</a>
-          <a href="/customer/my-purchase">my-purchase</a>
+          <a style="margin: 10PX;"  href="/customer/dashboard">Dashboard</a>
+          <a style="margin: 10PX;"  href="/customer/profile">Profile</a>
+          <a style="margin: 10PX;"  href="/customer/browse-purchase">Purchase</a>
+          <a style="margin: 10PX;"  href="/customer/browse-rentals">Rental</a>
+          <a style="margin: 10PX;"  href="/customer/my-rentals">my-rentals</a>
+          <a style="margin: 10PX;"  href="/customer/my-purchase">my-purchase</a>
           <button (click)="logout()">Logout</button>
         </div>
   

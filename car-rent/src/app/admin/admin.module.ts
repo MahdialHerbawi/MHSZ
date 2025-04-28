@@ -6,6 +6,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageCarsComponent } from './manage-cars/manage-cars.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ManageCarsComponent } from './manage-cars/manage-cars.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AdminRoutingModule
   ]
 })

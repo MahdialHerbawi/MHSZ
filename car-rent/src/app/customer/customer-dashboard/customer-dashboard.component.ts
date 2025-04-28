@@ -18,25 +18,12 @@ export class CustomerDashboardComponent implements OnInit{
   pricerent: string = '';
   role: string = '';
   rentalCars:any []=[];
+  purchasableCars:any[]=[]
   activeTab: 'rent' | 'purchase' = 'rent'; // <- Default tab when page loads
   
   
 
-  purchasableCars = [
-    {
-      name: 'BMW 3 Series',
-      clientName: 'Client C',
-      askingPrice: 30000,
-      image: 'assets/images/bmw.jpg'
-    },
-    {
-      name: 'Audi A4',
-      clientName: 'Client D',
-      askingPrice: 32000,
-      image: 'assets/images/audi.jpg'
-    }
-    // Add more purchasable cars here
-  ];
+  
 
   constructor(private local:LocalStorageService,private router: Router
   )  {
@@ -44,6 +31,7 @@ export class CustomerDashboardComponent implements OnInit{
   }
   ngOnInit(): void {
    this.rentalCars= this.local.datacar()
+   this.purchasableCars=this.local.datacar()
   }
  
   
@@ -58,6 +46,6 @@ export class CustomerDashboardComponent implements OnInit{
 
   confirmPurchase(car: any) {
     this.local.setItem('selectedPurchaseCar', car);
-    this.router.navigate(['/customer/my-purchases']);
+    this.router.navigate(['/customer/my-purchase']);
   }
 }

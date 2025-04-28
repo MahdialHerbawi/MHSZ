@@ -16,6 +16,6 @@ constructor(private localStorageService:LocalStorageService){
    this.myrent =this.localStorageService.getItem('selectedRentCar');
   }
 
-
+ 
 }
 

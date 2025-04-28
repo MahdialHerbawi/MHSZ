@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../../service/local-storage.service';
 
 @Component({
   selector: 'app-manage-purchases',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './manage-purchases.component.html',
   styleUrl: './manage-purchases.component.scss'
 })
-export class ManagePurchasesComponent {
+export class ManagePurchasesComponent implements OnInit {
+purchasescar: any = [];
+  constructor(private localStorage:LocalStorageService){
 
+  }
+  ngOnInit(): void {
+   this.purchasescar=this.localStorage.getItem('selectedPurchaseCar')
+  }
 }
