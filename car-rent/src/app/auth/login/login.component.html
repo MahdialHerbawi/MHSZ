@@ -1,0 +1,48 @@
+<div class="login-page">
+  <div class="login-container">
+    <img src="/Car_Logo_White-Photoroom.png" alt="Car Logo" class="logo" />
+
+    
+
+    <h2>Login</h2>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+
+      <button type="submit" [disabled]="!loginForm.valid" class="button-text">Login</button>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+    </form>
+
+    <div class="divider">OR</div>
+
+    <p class="signup-text">
+      Don't have an account?
+      <a routerLink="/auth/signup">Sign up here</a>
+    </p>
+  </div>
+</div>
