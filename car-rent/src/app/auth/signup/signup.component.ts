@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../../service/local-storage.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,16 +8,21 @@ import { Router } from '@angular/router';
   standalone: false,
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent {
+export class SignupComponent  {
   email: string = '';
+  name: string = '';
   password: string = '';
   confirmPassword: string = '';
   role: string = '';
+  number:string='';
+  age:string='';
   errorMessage: string = '';
   successMessage: string = '';
   isLoading: boolean = false;
+  cuastmerdata:any[]|null=[];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router ,private local:LocalStorageService) {}
+
 
   validateEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,7 +33,7 @@ export class SignupComponent {
     this.errorMessage = '';
     this.successMessage = '';
 
-    if (!this.email || !this.password || !this.confirmPassword || !this.role) {
+    if (!this.email || !this.password || !this.confirmPassword || !this.role ) {
       this.errorMessage = 'All fields are required.';
       return;
     }
@@ -62,7 +68,10 @@ export class SignupComponent {
         users.push({
           email: this.email,
           password: this.password,
-          role: this.role
+          role: this.role,
+          name:this.name,
+          age:this.age,
+          number:this.number
         });
 
         localStorage.setItem('users', JSON.stringify(users));
@@ -75,6 +84,9 @@ export class SignupComponent {
         this.password = '';
         this.confirmPassword = '';
         this.role = '';
+        this.number='';
+        this.age='';
+        this.name='';
 
         setTimeout(() => {
           this.router.navigate(['/auth/login']);

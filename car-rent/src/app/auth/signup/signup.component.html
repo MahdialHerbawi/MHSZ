@@ -3,6 +3,12 @@
     <form (ngSubmit)="onSignUp()" #signupForm="ngForm">
   
       <div>
+        
+        <label>Name:</label>
+        <input type="text" name="Name" [(ngModel)]="name" required>
+      </div>
+      <div>
+
         <label>Email:</label>
         <input type="email" name="email" [(ngModel)]="email" required>
       </div>
@@ -16,7 +22,16 @@
         <label>Confirm Password:</label>
         <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required minlength="6">
       </div>
-  
+      <div>
+
+        <label>Number:</label>
+        <input type="number" name="number" [(ngModel)]="number" required>
+      </div>
+      <div>
+
+        <label>Age:</label>
+        <input type="number" name="Age" [(ngModel)]="age" required>
+      </div>
       <div>
         <label>Role:</label>
         <select name="role" [(ngModel)]="role" required>

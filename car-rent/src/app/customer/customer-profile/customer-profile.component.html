@@ -1,1 +1,16 @@
-<p>customer-profile works!</p>
+<div >
+
+</div>
+<div class="profile-container">
+    <div class="profile-card">
+      <img [src]="cuastmerdata.profilePicture || 'assets/default-profile.png'" alt="Profile Picture" class="profile-image" />
+      <p class="card-text">name :{{cuastmerdata.name}}</p>
+      <h5 class="card-title">email:{{ cuastmerdata.email }}</h5>
+      <p class="card-text">Phone-number :{{cuastmerdata.number}}</p>
+      <p class="card-text">type:{{ cuastmerdata.role }}</p>
+<p class="card-text">age :{{cuastmerdata.age}}</p>
+
+  
+     
+    </div>
+  </div>

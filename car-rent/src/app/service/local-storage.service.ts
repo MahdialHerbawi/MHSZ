@@ -92,4 +92,5 @@ export class LocalStorageService {
     localStorage.removeItem('email');
     this.router.navigate(['/login']);
   }
+  
 }
