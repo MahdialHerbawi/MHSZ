@@ -1,16 +1,28 @@
-<div >
+<div class="customer-profile">
+  <h2>Customer Profile</h2>
 
-</div>
-<div class="profile-container">
-    <div class="profile-card">
-      <img [src]="cuastmerdata.profilePicture || 'assets/default-profile.png'" alt="Profile Picture" class="profile-image" />
-      <p class="card-text">name :{{cuastmerdata.name}}</p>
-      <h5 class="card-title">email:{{ cuastmerdata.email }}</h5>
-      <p class="card-text">Phone-number :{{cuastmerdata.number}}</p>
-      <p class="card-text">type:{{ cuastmerdata.role }}</p>
-<p class="card-text">age :{{cuastmerdata.age}}</p>
+  <!-- View Mode (if not editing) -->
+  <div *ngIf="!isEditing">
+    <img src="profileData.profilePicture || 'assets/default-profile.png'" alt="Profile Picture" class="profile-image" />
+    <p><strong>Name:</strong> {{ profileData.name || 'Not Provided' }}</p>
+    <p><strong>Email:</strong> {{ profileData.email || 'Not Provided' }}</p>
+    <p><strong>Age:</strong> {{ profileData.age || 'Not Provided' }}</p>
+    <p><strong>Phone Number:</strong> {{ profileData.number || 'Not Provided' }}</p>
+    <p><strong>Role:</strong> {{ profileData.role || 'Not Provided' }}</p>
 
-  
-     
-    </div>
+
+    <button (click)="editProfile()">Edit</button>
+    <button (click)="deleteProfile()">Delete Profile</button>
   </div>
+
+  <!-- Edit Mode (if editing) -->
+  <div *ngIf="isEditing">
+    <input type="text" [(ngModel)]="profileData.name" placeholder="Name">
+    <input type="email" [(ngModel)]="profileData.email" placeholder="Email">
+    
+    <input type="text" [(ngModel)]="profileData.number" placeholder="Phone Number">
+    
+    <button (click)="saveProfile()">Save</button>
+    <button (click)="isEditing = false">Cancel</button>
+  </div>
+</div>

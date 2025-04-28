@@ -10,10 +10,47 @@ import { LocalStorageService } from '../../service/local-storage.service';
 })
 
 export class CustomerProfileComponent implements OnInit {
-  cuastmerdata:any=[]
-  constructor(private router: Router ,private local:LocalStorageService) {}
+  //cuastmerdata:any=[]
+  profileData = {
+    name: '',
+    email: '',
+    number: '',
+    role:'',
+    profilePicture:'',
+    age:''
+  };
+
+  isEditing: boolean = false;
+  constructor(private router: Router ,private localStorageService:LocalStorageService) {}
   ngOnInit(): void {
-    this.cuastmerdata=this.local.getItem('currentUser')
+    this.loadProfile();
+   // this.cuastmerdata=this.localStorageService.getItem('currentUser')
+    
+  }
+  loadProfile(): void {
+    const storedProfile = this.localStorageService.getItem<any>('currentUser');
+    if (storedProfile) {
+      this.profileData = storedProfile;
+    }
+  }
+
+  // Switch to edit mode
+  editProfile(): void {
+    this.isEditing = true;
+  }
+
+  // Save the edited profile to localStorage
+  saveProfile(): void {
+    this.localStorageService.setItem('currentUser', this.profileData);
+    this.isEditing = false;
+    alert('Profile saved successfully!');
+  }
+
+  // Delete the profile from localStorage
+  deleteProfile(): void {
+    this.localStorageService.removeItem('currentUser');
+    this.profileData = { name: '', email: '', number: '',role:'',age:'',profilePicture:'' };
+    alert('Profile deleted successfully!');
   }
 
 }

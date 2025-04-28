@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../../service/local-storage.service';
 
 @Component({
@@ -7,10 +7,14 @@ import { LocalStorageService } from '../../service/local-storage.service';
   templateUrl: './my-rentals.component.html',
   styleUrl: './my-rentals.component.scss'
 })
-export class MyRentalsComponent {
+export class MyRentalsComponent implements OnInit {
+  myrent:any=[]
 constructor(private localStorageService:LocalStorageService){
- const car =this.localStorageService.getItem<any>('selectedRentCar');
+
 }
+  ngOnInit(): void {
+   this.myrent =this.localStorageService.getItem('selectedRentCar');
+  }
 
 
 }

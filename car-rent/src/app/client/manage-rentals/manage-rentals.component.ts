@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './manage-rentals.component.scss'
 })
 export class ManageRentalsComponent {
-
+//const test = JSON.parse('selectedRentCar')|| '';
 }

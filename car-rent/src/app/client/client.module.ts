@@ -8,6 +8,7 @@ import { AddRentalCarComponent } from './add-rental-car/add-rental-car.component
 import { AddPurchaseCarComponent } from './add-purchase-car/add-purchase-car.component';
 import { ManageRentalsComponent } from './manage-rentals/manage-rentals.component';
 import { ManagePurchasesComponent } from './manage-purchases/manage-purchases.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ManagePurchasesComponent } from './manage-purchases/manage-purchases.co
     ManagePurchasesComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     ClientRoutingModule
   ]

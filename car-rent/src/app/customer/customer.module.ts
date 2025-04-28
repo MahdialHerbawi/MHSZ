@@ -8,6 +8,7 @@ import { BrowseRentalCarsComponent } from './browse-rental-cars/browse-rental-ca
 import { BrowsePurchaseCarsComponent } from './browse-purchase-cars/browse-purchase-cars.component';
 import { MyRentalsComponent } from './my-rentals/my-rentals.component';
 import { MyPurchasesComponent } from './my-purchases/my-purchases.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MyPurchasesComponent } from './my-purchases/my-purchases.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     CustomerRoutingModule,
     
   ]
