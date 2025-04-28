@@ -18,9 +18,9 @@ export class LocalStorageService {
     }
     if (!localStorage.getItem('car')) {
       localStorage.setItem('car', JSON.stringify([
-        { car: 'bice', yers: '2020',pricerent:'25jd', role: 'rent' },
-        { car: 'bice2', yers: '2021',pricerent:'27jd', role: 'rent' },
-        { car: 'bice3', yers: '2022',pricerent:'26jd', role: 'rent' },
+        { carname: 'bice', yers: '2020',pricerent:'25jd', type: 'rent' },
+        { carname: 'bice2', yers: '2021',pricerent:'27jd', type: 'rent' },
+        { carname: 'bice3', yers: '2022',pricerent:'26jd', type: 'rent' },
       ]));
     }
   }
@@ -75,6 +75,10 @@ export class LocalStorageService {
 
   getRole(): string | null {
     return localStorage.getItem('role');
+  }
+   datacar():any{
+
+    return JSON.parse(localStorage.getItem('car')||'');
   }
 
 

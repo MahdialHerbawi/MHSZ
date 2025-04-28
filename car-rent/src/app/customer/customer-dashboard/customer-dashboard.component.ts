@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../service/local-storage.service';
  // Adjust path if needed
@@ -12,11 +12,12 @@ import { LocalStorageService } from '../../service/local-storage.service';
     // if you have slideAnimation, import it from animations.ts or define it here
   ]
 })
-export class CustomerDashboardComponent {
+export class CustomerDashboardComponent implements OnInit{
   car: string = '';
   yers: string = '';
   pricerent: string = '';
   role: string = '';
+  rentalCars:any []=[];
   activeTab: 'rent' | 'purchase' = 'rent'; // <- Default tab when page loads
   
   
@@ -38,38 +39,13 @@ export class CustomerDashboardComponent {
   ];
 
   constructor(private local:LocalStorageService,private router: Router
-  ) {
+  )  {
    
   }
-  rentalCars = [
-    
-   {
-      name: 'Toyota Corolla',
-      clientName: 'Client A',
-      dailyRate: 50,
-      image: 'assets/images/toyota.jpg'
-    },
-    {
-      name: 'Honda Civic',
-      clientName: 'Client B',
-      dailyRate: 55,
-      image: 'assets/images/honda.jpg'
-    },
-    {
-      name: 'Toyota Corolla1',
-      clientName: 'Client A',
-      dailyRate: 50,
-      image: 'assets/images/toyota.jpg'
-    },
-    {
-      name: 'Honda Civic2',
-      clientName: 'Client B',
-      dailyRate: 55,
-      image: 'assets/images/honda.jpg'
-    }
-
-    // Add more cars here
-  ];
+  ngOnInit(): void {
+   this.rentalCars= this.local.datacar()
+  }
+ 
   
   switchTab(tab: 'rent' | 'purchase') {
     this.activeTab = tab;

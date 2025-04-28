@@ -6,9 +6,10 @@
         <div class="card">
           <img [src]="car.image" class="card-img-top" alt="Car Image">
           <div class="card-body">
-            <h5 class="card-title">{{ car.name }}</h5>
-            <p class="card-text">Client: {{ car.clientName }}</p>
-            <p class="card-text">Daily Rate: ${{ car.dailyRate }}</p>
+            <h5 class="card-title">{{ car.carname }}</h5>
+            <p class="card-text">yers: {{ car.yers }}</p>
+            <p class="card-text">Daily Rate: ${{ car.pricerent }}</p>
+            <p class="card-text">type :{{car.type}}</p>
             <button class="btn btn-success mt-2" (click)="confirmRent(car)">
               Rent Now
             </button>
