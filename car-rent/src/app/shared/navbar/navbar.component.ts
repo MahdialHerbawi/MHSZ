@@ -48,6 +48,16 @@ role:string|null=null;
    
   }
 
+  mobileMenuActive: boolean = false;
+
+toggleMobileMenu(): void {
+  this.mobileMenuActive = !this.mobileMenuActive;
+}
+
+closeMobileMenu(): void {
+  this.mobileMenuActive = false;
+}
+
   logout() {
     this.auth.logout();
     this.router.navigate(['/auth/login']);
