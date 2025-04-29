@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LocalStorageService } from '../../service/local-storage.service';
 import { AuthService } from '../../auth/auth.service';
 
@@ -7,16 +7,34 @@ import { AuthService } from '../../auth/auth.service';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   standalone:false,
-  styleUrl:'./navbar.component.scss'
+  styleUrl:'./navbar.component.scss',
 })
 export class NavbarComponent implements OnInit {
 role:string|null=null;
-  constructor(private router: Router,private auth:AuthService) {}
+  constructor(private router: Router, private auth: AuthService) {}
   ngOnInit(): void {
     this.auth.role$.subscribe(role => {
       this.role = role;
 
   });}
+
+  shouldShowNavbar(): boolean {
+    const hiddenRoutes = ['/auth/login', '/auth/signup'];
+    return !hiddenRoutes.includes(this.router.url);
+  }
+
+  getDashboardLink(): string {
+    const role = this.getUserRole();
+    if (role === 'admin') {
+      return '/admin/dashboard';
+    } else if (role === 'client') {
+      return '/client/dashboard';
+    } else if (role === 'customer') {
+      return '/customer/dashboard';
+    }
+    return '/';
+  }
+  
 
   isLoggedIn(): boolean {
     console.log("logged in ", this.role)
@@ -29,6 +47,16 @@ role:string|null=null;
     return this.role;
    
   }
+
+  mobileMenuActive: boolean = false;
+
+toggleMobileMenu(): void {
+  this.mobileMenuActive = !this.mobileMenuActive;
+}
+
+closeMobileMenu(): void {
+  this.mobileMenuActive = false;
+}
 
   logout() {
     this.auth.logout();

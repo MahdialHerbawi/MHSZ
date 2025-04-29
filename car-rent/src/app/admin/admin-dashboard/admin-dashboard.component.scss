@@ -1,15 +1,444 @@
-.dashboard-card {
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+@import '../../../styles.scss';
+
+
+.admin-dashboard {
+  background-color: lighten($background-dark, 5%);
+  color: $text-primary;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: $font-family-main;
+
+  .dashboard-header {
+    margin-bottom: 2.5rem;
+    
+    .header-content {
+      margin-bottom: 2rem;
+      
+      h1 {
+        font-family: $font-family-title;
+        font-size: 2.2rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.5rem;
+        color: white;
+        font-weight: 700;
+      }
+      
+      .subtitle {
+        color: $text-secondary;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+      }
+    }
+    
+    .header-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      
+      .stat-card {
+        background: rgba(white, 0.05);
+        border-radius: 8px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba($accent-blue, 0.1);
+        transition: $transition-smooth;
+        
+        &:hover {
+          background: rgba(white, 0.08);
+          transform: translateY(-3px);
+        }
+        
+        .stat-icon {
+          background: rgba($accent-blue, 0.2);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 1.5rem;
+          font-size: 1.2rem;
+          color: $hover-blue;
+        }
+        
+        .stat-content {
+          .stat-value {
+            display: block;
+            font-family: $font-family-title;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+          }
+          
+          .stat-label {
+            font-size: 0.85rem;
+            color: $text-secondary;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+    }
   }
-  
-  .dashboard-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+
+  .dashboard-content {
+    .quick-actions {
+      margin-bottom: 2.5rem;
+      
+      .section-title {
+        font-family: $font-family-title;
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+        color: white;
+        display: flex;
+        align-items: center;
+        
+        i {
+          color: $hover-blue;
+          margin-right: 0.8rem;
+          font-size: 1.1rem;
+        }
+      }
+      
+      .action-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        
+        .action-button {
+          background: rgba($accent-blue, 0.3);
+          border: 1px solid $accent-blue;
+          color: $text-primary;
+          padding: 0.8rem 1.5rem;
+          border-radius: 6px;
+          font-family: $font-family-title;
+          font-size: 0.9rem;
+          letter-spacing: 0.5px;
+          cursor: pointer;
+          transition: $transition-smooth;
+          display: flex;
+          align-items: center;
+          
+          i {
+            margin-right: 0.6rem;
+            font-size: 1rem;
+          }
+          
+          &:hover {
+            background: rgba($accent-blue, 0.5);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+    
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      
+      .feature-card {
+        background: rgba(white, 0.03);
+        border-radius: 10px;
+        border: 1px solid rgba($accent-blue, 0.1);
+        overflow: hidden;
+        transition: $transition-smooth;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          border-color: rgba($accent-blue, 0.3);
+        }
+        
+        .card-header {
+          padding: 1.5rem;
+          border-bottom: 1px solid rgba($accent-blue, 0.1);
+          display: flex;
+          align-items: center;
+          
+          .card-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba($accent-blue, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: $hover-blue;
+            font-size: 1.1rem;
+          }
+          
+          h3 {
+            font-family: $font-family-title;
+            font-size: 1.2rem;
+            color: white;
+            margin: 0;
+            letter-spacing: 0.8px;
+          }
+        }
+        
+        .card-body {
+          padding: 1.5rem;
+          flex-grow: 1;
+          
+          p {
+            color: $text-secondary;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+          }
+          
+          .card-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            
+            .mini-stat {
+              .mini-value {
+                display: block;
+                font-family: $font-family-title;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: white;
+              }
+              
+              .mini-label {
+                font-size: 0.8rem;
+                color: $text-secondary;
+                letter-spacing: 0.5px;
+              }
+            }
+          }
+          
+          .chart-placeholder {
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            
+            .chart-bar {
+              flex-grow: 1;
+              background: rgba($accent-blue, 0.3);
+              border-radius: 4px 4px 0 0;
+              position: relative;
+              
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                background: linear-gradient(to top, $accent-blue, $hover-blue);
+                border-radius: 4px 4px 0 0;
+              }
+            }
+          }
+          
+          .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+            li {
+              padding: 0.8rem 0;
+              border-bottom: 1px solid rgba($accent-blue, 0.05);
+              display: flex;
+              align-items: center;
+              
+              &:last-child {
+                border-bottom: none;
+              }
+              
+              .activity-icon {
+                color: $hover-blue;
+                margin-right: 0.8rem;
+                font-size: 0.9rem;
+                width: 20px;
+                text-align: center;
+              }
+              
+              span {
+                flex-grow: 1;
+                font-size: 0.9rem;
+              }
+              
+              .activity-time {
+                color: $text-secondary;
+                font-size: 0.8rem;
+                margin-left: 0.5rem;
+              }
+            }
+          }
+          
+          .health-metrics {
+            .metric {
+              margin-bottom: 1.2rem;
+              
+              &:last-child {
+                margin-bottom: 0;
+              }
+              
+              .metric-label {
+                font-size: 0.85rem;
+                color: $text-secondary;
+                margin-bottom: 0.3rem;
+              }
+              
+              .metric-bar {
+                height: 6px;
+                background: rgba(white, 0.1);
+                border-radius: 3px;
+                margin-bottom: 0.3rem;
+                
+                .metric-fill {
+                  height: 100%;
+                  border-radius: 3px;
+                  background: linear-gradient(to right, $accent-blue, $hover-blue);
+                }
+              }
+              
+              .metric-value {
+                font-family: $font-family-title;
+                font-size: 0.9rem;
+                
+                &.success {
+                  color: #4ade80;
+                }
+              }
+            }
+          }
+          
+          .report-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            
+            .report-button {
+              background: rgba($accent-blue, 0.1);
+              border: 1px solid rgba($accent-blue, 0.3);
+              color: $text-primary;
+              padding: 0.7rem;
+              border-radius: 6px;
+              font-size: 0.85rem;
+              cursor: pointer;
+              transition: $transition-smooth;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              
+              i {
+                margin-right: 0.5rem;
+                color: $hover-blue;
+              }
+              
+              &:hover {
+                background: rgba($accent-blue, 0.3);
+              }
+            }
+          }
+        }
+        
+        .card-footer {
+          padding: 1.2rem 1.5rem;
+          border-top: 1px solid rgba($accent-blue, 0.1);
+          
+          .card-link {
+            color: $hover-blue;
+            text-decoration: none;
+            font-family: $font-family-title;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            transition: $transition-smooth;
+            
+            i {
+              margin-left: 0.5rem;
+              font-size: 0.8rem;
+              transition: $transition-smooth;
+            }
+            
+            &:hover {
+              color: lighten($hover-blue, 10%);
+              
+              i {
+                transform: translateX(3px);
+              }
+            }
+          }
+        }
+      }
+    }
   }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .admin-dashboard {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .admin-dashboard {
+    .cards-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 1rem;
+    
+    .dashboard-header {
+      .header-content {
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+      
+      .header-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .quick-actions {
+      .action-buttons {
+        flex-direction: column;
+        
+        .action-button {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-dashboard {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .dashboard-header {
+      .header-content {
+        h1 {
+          font-size: 1.6rem;
+        }
+        
+        .subtitle {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
