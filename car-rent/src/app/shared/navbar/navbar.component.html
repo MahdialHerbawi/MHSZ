@@ -1,44 +1,46 @@
-<nav class="navbar">
+<nav class="navbar" *ngIf="shouldShowNavbar()">
+  <div class="navbar-container">
     <div class="navbar-brand">
-      <a routerLink="/">Car Rental & Purchase</a>
+      <a [routerLink]="getDashboardLink()" class="brand-link">
+        <img src="/Car_Logo_White-Photoroom.png" alt="Car Rental Logo" class="logo" />
+      </a>
     </div>
-  
-    <div class="navbar-links" *ngIf="isLoggedIn(); else guestLinks">
+
+    <!-- Mobile menu button -->
+    <button class="mobile-menu-button" (click)="toggleMobileMenu()" *ngIf="isLoggedIn()">
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+    </button>
+
+    <div class="navbar-links" [class.mobile-menu-active]="mobileMenuActive" *ngIf="isLoggedIn()">
       <ng-container [ngSwitch]="getUserRole()">
-        
-        <div *ngSwitchCase="'admin'">
-          <a href="/admin/dashboard">Dashboard</a>
-          <a href="/admin/profile">Profile</a>
-          <button (click)="logout()">Logout</button>
+        <!-- Admin Links -->
+        <div *ngSwitchCase="'admin'" class="link-group">
+          <a routerLink="/admin/profile" class="nav-link" (click)="closeMobileMenu()">PROFILE</a>
+          <button (click)="logout(); closeMobileMenu()" class="logout-button">SIGN OUT</button>
         </div>
-  
-        <div *ngSwitchCase="'client'">
-          <a href="/client/dashboard">Dashboard</a>
-          <a href="/client/profile">Profile</a>
-          <a href="/client/manage-purchases">Purchase</a>
-          <a href="/client/manage-rentals">Rental</a>
-          <a href="/client/add-rental">add-rental</a>
-          <a href="/client/add-purchase">add-purchase</a>
-          <button (click)="logout()">Logout</button>
+
+        <!-- Client Links -->
+        <div *ngSwitchCase="'client'" class="link-group">
+          <a routerLink="/client/profile" class="nav-link" (click)="closeMobileMenu()">PROFILE</a>
+          <a routerLink="/client/manage-purchases" class="nav-link" (click)="closeMobileMenu()">PURCHASES</a>
+          <a routerLink="/client/manage-rentals" class="nav-link" (click)="closeMobileMenu()">RENTALS</a>
+          <a routerLink="/client/add-rental" class="nav-link" (click)="closeMobileMenu()">ADD RENTAL</a>
+          <a routerLink="/client/add-purchase" class="nav-link" (click)="closeMobileMenu()">ADD PURCHASE</a>
+          <button (click)="logout(); closeMobileMenu()" class="logout-button">SIGN OUT</button>
         </div>
-  
-        <div *ngSwitchCase="'customer'">
-          <a href="/customer/dashboard">Dashboard</a>
-          <a href="/customer/profile">Profile</a>
-          <a href="/customer/browse-purchase">Purchase</a>
-          <a href="/customer/browse-rentals">Rental</a>
-          <a href="/customer/my-rentals">my-rentals</a>
-          <a href="/customer/my-purchase">my-purchase</a>
-          <button (click)="logout()">Logout</button>
+
+        <!-- Customer Links -->
+        <div *ngSwitchCase="'customer'" class="link-group">
+          <a routerLink="/customer/profile" class="nav-link" (click)="closeMobileMenu()">PROFILE</a>
+          <a routerLink="/customer/browse-purchase" class="nav-link" (click)="closeMobileMenu()">PURCHASES</a>
+          <a routerLink="/customer/browse-rentals" class="nav-link" (click)="closeMobileMenu()">RENTALS</a>
+          <a routerLink="/customer/my-rentals" class="nav-link" (click)="closeMobileMenu()">MY RENTALS</a>
+          <a routerLink="/customer/my-purchase" class="nav-link" (click)="closeMobileMenu()">MY PURCHASES</a>
+          <button (click)="logout(); closeMobileMenu()" class="logout-button">SIGN OUT</button>
         </div>
-  
       </ng-container>
     </div>
-  
-    <ng-template #guestLinks>
-      <div>
-        <a href="/auth/login">Login</a>
-        <a href="/auth/signup">Sign Up</a>
-      </div>
-    </ng-template>
-  </nav>
+  </div>
+</nav>

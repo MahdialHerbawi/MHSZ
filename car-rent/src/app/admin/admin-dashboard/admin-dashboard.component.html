@@ -1,35 +1,230 @@
-<div class="container mt-4">
-    <div class="row">
-      
-      <div class="col-md-4">
-        <div class="card dashboard-card">
-          <div class="card-body">
-            <h5 class="card-title">Manage Clients</h5>
-            <p class="card-text">View, approve, or remove rental providers.</p>
-            <a routerLink="/admin-clients" class="btn btn-primary">Go</a>
-          </div>
+<div class="admin-dashboard">
+  <!-- Dashboard Header with Stats -->
+  <div class="dashboard-header">
+    <div class="header-content">
+      <h1>ADMINISTRATION PANEL</h1>
+      <p class="subtitle">HIGH CALIBER AUTOMOBILES MANAGEMENT SYSTEM</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">248</span>
+          <span class="stat-label">Active Clients</span>
         </div>
       </div>
-      
-      <div class="col-md-4">
-        <div class="card dashboard-card">
-          <div class="card-body">
-            <h5 class="card-title">Manage Customers</h5>
-            <p class="card-text">View all customers and their activities.</p>
-            <a routerLink="/admin-customers" class="btn btn-primary">Go</a>
-          </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">1,842</span>
+          <span class="stat-label">Registered Users</span>
         </div>
       </div>
-  
-      <div class="col-md-4">
-        <div class="card dashboard-card">
-          <div class="card-body">
-            <h5 class="card-title">Reports</h5>
-            <p class="card-text">View purchase/rental statistics.</p>
-            <a routerLink="/admin-reports" class="btn btn-primary">Go</a>
-          </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">573</span>
+          <span class="stat-label">Vehicles Listed</span>
         </div>
       </div>
-  
     </div>
   </div>
+
+  <!-- Main Dashboard Content -->
+  <div class="dashboard-content">
+    <!-- Quick Actions Panel -->
+    <div class="quick-actions">
+      <h2 class="section-title">
+        <i class="fas fa-bolt"></i> QUICK ACTIONS
+      </h2>
+      <div class="action-buttons">
+        <button class="action-button">
+          <i class="fas fa-plus-circle"></i> Add New Client
+        </button>
+        <button class="action-button">
+          <i class="fas fa-file-import"></i> Import Data
+        </button>
+        <button class="action-button">
+          <i class="fas fa-cog"></i> System Settings
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Cards Grid -->
+    <div class="cards-grid">
+      <!-- Clients Management Card -->
+      <div class="feature-card">
+        <div class="card-header">
+          <i class="fas fa-user-tie card-icon"></i>
+          <h3>CLIENTS MANAGEMENT</h3>
+        </div>
+        <div class="card-body">
+          <p>Manage all rental providers, review applications, and monitor client activity.</p>
+          <div class="card-stats">
+            <div class="mini-stat">
+              <span class="mini-value">12</span>
+              <span class="mini-label">Pending</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-value">5</span>
+              <span class="mini-label">Flags</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a routerLink="/admin-clients" class="card-link">
+            Manage Clients <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Customers Management Card -->
+      <div class="feature-card">
+        <div class="card-header">
+          <i class="fas fa-users card-icon"></i>
+          <h3>CUSTOMERS PORTAL</h3>
+        </div>
+        <div class="card-body">
+          <p>Access customer profiles, view rental history, and manage user accounts.</p>
+          <div class="card-stats">
+            <div class="mini-stat">
+              <span class="mini-value">24</span>
+              <span class="mini-label">New Today</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-value">83%</span>
+              <span class="mini-label">Active</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a routerLink="/admin-customers" class="card-link">
+            View Customers <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Analytics Card -->
+      <div class="feature-card">
+        <div class="card-header">
+          <i class="fas fa-chart-line card-icon"></i>
+          <h3>BUSINESS ANALYTICS</h3>
+        </div>
+        <div class="card-body">
+          <p>Comprehensive reports and data visualization for rental and purchase metrics.</p>
+          <div class="chart-placeholder">
+            <div class="chart-bar" style="height: 30%"></div>
+            <div class="chart-bar" style="height: 70%"></div>
+            <div class="chart-bar" style="height: 45%"></div>
+            <div class="chart-bar" style="height: 85%"></div>
+            <div class="chart-bar" style="height: 60%"></div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a routerLink="/admin-reports" class="card-link">
+            View Reports <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Recent Activity Card -->
+      <div class="feature-card">
+        <div class="card-header">
+          <i class="fas fa-history card-icon"></i>
+          <h3>RECENT ACTIVITY</h3>
+        </div>
+        <div class="card-body">
+          <ul class="activity-list">
+            <li>
+              <i class="fas fa-car activity-icon"></i>
+              <span>New rental: BMW M5 by client AutoElite</span>
+              <span class="activity-time">2 mins ago</span>
+            </li>
+            <li>
+              <i class="fas fa-user-plus activity-icon"></i>
+              <span>New customer registration</span>
+              <span class="activity-time">15 mins ago</span>
+            </li>
+            <li>
+              <i class="fas fa-flag activity-icon"></i>
+              <span>Client report submitted</span>
+              <span class="activity-time">1 hour ago</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="card-link">
+            View All Activity <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- System Health Card -->
+      <div class="feature-card">
+        <div class="card-header">
+          <i class="fas fa-heartbeat card-icon"></i>
+          <h3>SYSTEM HEALTH</h3>
+        </div>
+        <div class="card-body">
+          <div class="health-metrics">
+            <div class="metric">
+              <div class="metric-label">Server Load</div>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 35%"></div>
+              </div>
+              <div class="metric-value">35%</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Database</div>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 62%"></div>
+              </div>
+              <div class="metric-value">62%</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Uptime</div>
+              <div class="metric-value success">99.98%</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="card-link">
+            System Details <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Reports Card -->
+      <div class="feature-card">
+        <div class="card-header">
+          <i class="fas fa-file-alt card-icon"></i>
+          <h3>QUICK REPORTS</h3>
+        </div>
+        <div class="card-body">
+          <div class="report-options">
+            <button class="report-button">
+              <i class="fas fa-download"></i> Daily Summary
+            </button>
+            <button class="report-button">
+              <i class="fas fa-download"></i> Client Activity
+            </button>
+            <button class="report-button">
+              <i class="fas fa-download"></i> Revenue Report
+            </button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a routerLink="/admin-reports" class="card-link">
+            Generate Custom <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
