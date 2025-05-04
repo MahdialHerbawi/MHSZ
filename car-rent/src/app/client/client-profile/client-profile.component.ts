@@ -13,7 +13,7 @@ clientdata:any=[]
     name: '',
     email: '',
     location: '',
-    phoneNumber: '',
+    number: '',
     profilePicture:''
   };
 
@@ -46,7 +46,7 @@ clientdata:any=[]
 
   deleteProfile(): void {
     this.localStorageService.removeItem('currentUser');
-    this.profileData = { name: '', email: '', location: '', phoneNumber: '' ,profilePicture:''};
+    this.profileData = { name: '', email: '', location: '', number: '' ,profilePicture:''};
     alert('Profile deleted successfully!');
   }
 }

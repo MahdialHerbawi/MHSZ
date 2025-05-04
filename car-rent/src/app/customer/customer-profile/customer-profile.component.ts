@@ -16,7 +16,7 @@ export class CustomerProfileComponent implements OnInit {
     email: '',
     number: '',
     role:'',
-    profilePicture:'',
+    image:'',
     age:''
   };
 
@@ -49,7 +49,7 @@ export class CustomerProfileComponent implements OnInit {
   // Delete the profile from localStorage
   deleteProfile(): void {
     this.localStorageService.removeItem('currentUser');
-    this.profileData = { name: '', email: '', number: '',role:'',age:'',profilePicture:'' };
+    this.profileData = { name: '', email: '', number: '',role:'',age:'',image:'' };
     alert('Profile deleted successfully!');
   }
 

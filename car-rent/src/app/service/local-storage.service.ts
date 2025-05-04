@@ -18,12 +18,12 @@ export class LocalStorageService {
     }
     if (!localStorage.getItem('car')) {
       localStorage.setItem('car', JSON.stringify([
-        { carname: 'bice', yers: '2020',pricerent:'25jd', type: 'rent' },
-        { carname: 'bice2', yers: '2021',pricerent:'27jd', type: 'rent' },
-        { carname: 'bice3', yers: '2022',pricerent:'26jd', type: 'rent' },
-        { carname: 'toyota camry', yers: '2024',pricepurchases:'26000jd', type: 'purchases' },
-        { carname: 'toyota corala', yers: '2024',pricepurchases:'22000jd', type: 'purchases' },
-        { carname: 'mazda zoom 3', yers: '2015',pricepurchases:'9000jd', type: 'purchases' },
+        {id:1, carname: 'bice', yers: '2020',pricerent:'25jd', type: 'rent', status:'available' },
+        {id:2, carname: 'bice2', yers: '2021',pricerent:'27jd', type: 'rent', status:'available'  },
+        {id:3, carname: 'bice3', yers: '2022',pricerent:'26jd', type: 'rent', status:'available' },
+        {id:4,carname: 'toyota camry', yers: '2024',pricepurchases:'26000jd', type: 'purchases', status:'available' },
+        {id:5, carname: 'toyota corala', yers: '2024',pricepurchases:'22000jd', type: 'purchases', status:'available' },
+        {id:6, carname: 'mazda zoom 3', yers: '2015',pricepurchases:'9000jd', type: 'purchases', status:'available' },
       ]));
     }
   }

@@ -12,9 +12,12 @@ export class MyRentalsComponent implements OnInit {
 constructor(private localStorageService:LocalStorageService){
 
 }
-  ngOnInit(): void {
-   this.myrent =this.localStorageService.getItem('selectedRentCar');
-  }
+cars: any[] = [];
+
+ngOnInit() {
+  const stored = localStorage.getItem('my_rent_customer');
+  this.cars = stored ? JSON.parse(stored) : [];
+}
 
  
 }

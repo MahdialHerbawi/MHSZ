@@ -1,4 +1,4 @@
-{{myrent.carname}}
-{{myrent.yers}}
-{{myrent.pricerent}}
-{{myrent.type}}
+<h2>My Rented Cars</h2>
+<div *ngFor="let car of cars">
+  <p>{{ car.carname }} - Status: {{ car.status }}</p>
+</div>

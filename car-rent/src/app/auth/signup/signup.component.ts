@@ -18,11 +18,21 @@ export class SignupComponent  {
   age:string='';
   errorMessage: string = '';
   successMessage: string = '';
+  image:string=''
   isLoading: boolean = false;
   cuastmerdata:any[]|null=[];
 
   constructor(private router: Router ,private local:LocalStorageService) {}
-
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.image = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
   validateEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,7 +81,8 @@ export class SignupComponent  {
           role: this.role,
           name:this.name,
           age:this.age,
-          number:this.number
+          number:this.number,
+         image: this.image
         });
 
         localStorage.setItem('users', JSON.stringify(users));
@@ -79,7 +90,7 @@ export class SignupComponent  {
         this.successMessage = 'Sign up successful! Redirecting to login...';
         this.isLoading = false;
 
-        
+        this.image='';
         this.email = '';
         this.password = '';
         this.confirmPassword = '';

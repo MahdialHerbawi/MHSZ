@@ -19,6 +19,8 @@ export class CustomerDashboardComponent implements OnInit{
   role: string = '';
   rentalCars:any []=[];
   purchasableCars:any[]=[]
+  cars: any[] = [];
+  stored:any
   activeTab: 'rent' | 'purchase' = 'rent'; // <- Default tab when page loads
   
   
@@ -32,6 +34,10 @@ export class CustomerDashboardComponent implements OnInit{
   ngOnInit(): void {
    this.rentalCars= this.local.datacar()
    this.purchasableCars=this.local.datacar()
+  this.stored = this.local.getItem('car');
+   this.cars = this.stored ? JSON.parse(this.stored) : [];
+   const stored = localStorage.getItem('dashboard_customer');
+  this.cars = stored ? JSON.parse(stored) : [];
   }
  
   
@@ -48,4 +54,18 @@ export class CustomerDashboardComponent implements OnInit{
     this.local.setItem('selectedPurchaseCar', car);
     this.router.navigate(['/customer/my-purchase']);
   }
-}
+  rentCar(car: any) {
+    const rentedCar = { ...car, status: 'available' };
+  
+    // Save to my_rent_customer
+    const myRent = JSON.parse(localStorage.getItem('my_rent_customer') || '[]');
+    myRent.push(rentedCar);
+    localStorage.setItem('my_rent_customer', JSON.stringify(myRent));
+  
+    // Save to manager_rent
+    const managerRent = JSON.parse(localStorage.getItem('manager_rent') || '[]');
+    managerRent.push(rentedCar);
+    localStorage.setItem('manager_rent', JSON.stringify(managerRent));
+  
+    alert('Car sent to rent request!');
+}}

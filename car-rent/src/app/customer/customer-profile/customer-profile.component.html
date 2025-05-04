@@ -2,8 +2,9 @@
   <h2>Customer Profile</h2>
 
   <!-- View Mode (if not editing) -->
-  <div *ngIf="!isEditing">
-    <img src="profileData.profilePicture || 'assets/default-profile.png'" alt="Profile Picture" class="profile-image" />
+  <div *ngIf="!isEditing">  
+    <img [src]="profileData.image" width="100" alt="Profile Picture" />
+
     <p><strong>Name:</strong> {{ profileData.name || 'Not Provided' }}</p>
     <p><strong>Email:</strong> {{ profileData.email || 'Not Provided' }}</p>
     <p><strong>Age:</strong> {{ profileData.age || 'Not Provided' }}</p>
