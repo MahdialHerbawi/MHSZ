@@ -1,0 +1,65 @@
+<div class="container mt-4">
+    <div class="row">
+      
+        <div class="col-md-4">
+            <div class="card dashboard-card">
+              <div class="card-body">
+                <a routerLink="/admin-clients" class="btn btn-primary">+</a>
+                <h3>add car</h3>
+              </div>
+            </div>
+          </div>
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-body">
+            <h5 class="card-title">Manage Clients</h5>
+            <p class="card-text">View, approve, or remove rental providers.</p>
+            <a routerLink="/admin-clients" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-body">
+            <h5 class="card-title">Manage Customers</h5>
+            <p class="card-text">View all customers and their activities.</p>
+            <a routerLink="/admin-customers" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-body">
+            <h5 class="card-title">Reports</h5>
+            <p class="card-text">View purchase/rental statistics.</p>
+            <a routerLink="/admin-reports" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="rented-cars-section">
+      <h2>Rented Cars</h2>
+      <div *ngFor="let car of rentedCars" class="rented-car-card">
+        <h3>{{ car.carname }}</h3>
+        <p><strong>Customer:</strong> {{ car.customerName }}</p>
+        <p><strong>Rent Date:</strong> {{ car.rentDate }}</p>
+        <p><strong>Return Date:</strong> {{ car.returnDate }}</p>
+        <p><strong>Price:</strong> {{ car.price }}</p>
+      </div>
+    </div>
+    
+    <hr>
+    
+    <div class="purchased-cars-section">
+      <h2>Purchased Cars</h2>
+      <div *ngFor="let car of purchasedCars" class="purchased-car-card">
+        <h3>{{ car.carname }}</h3>
+        <p><strong>Customer:</strong> {{ car.customerName }}</p>
+        <p><strong>Purchase Date:</strong> {{ car.purchaseDate }}</p>
+        <p><strong>Price:</strong> {{ car.price }}</p>
+      </div>
+    </div>
+    

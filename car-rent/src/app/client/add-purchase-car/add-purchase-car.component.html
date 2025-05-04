@@ -1,0 +1,9 @@
+<div class="purchase-car-form">
+    <h2>Purchase a Car</h2>
+    <input type="text" [(ngModel)]="purchaseCarData.carname" placeholder="Car Name">
+    <input type="date" [(ngModel)]="purchaseCarData.purchaseDate" placeholder="Purchase Date">
+    <input type="text" [(ngModel)]="purchaseCarData.price" placeholder="Price">
+    <input type="text" [(ngModel)]="purchaseCarData.customerName" placeholder="Customer Name">
+    <button (click)="purchaseCar()" [disabled]="!isFormValid()">Purchase Car</button>
+  </div>
+  

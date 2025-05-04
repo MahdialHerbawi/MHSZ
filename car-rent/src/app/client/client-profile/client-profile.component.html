@@ -1,0 +1,27 @@
+<div class="client-profile">
+    <h2>Client Profile</h2>
+  
+    <!-- View Mode (if not editing) -->
+    <div *ngIf="!isEditing">
+        <img src="profileData.profilePicture || 'assets/default-profile.png'" alt="Profile Picture" class="profile-image" />
+      <p><strong>Name:</strong> {{ profileData.name || 'Not Provided' }}</p>
+      <p><strong>Email:</strong> {{ profileData.email || 'Not Provided' }}</p>
+      <p><strong>Location:</strong> {{ profileData.location || 'Not Provided' }}</p>
+      <p><strong>Phone Number:</strong> {{ profileData.number || 'Not Provided' }}</p>
+  
+      <button (click)="editProfile()">Edit</button>
+      <button (click)="deleteProfile()">Delete Profile</button>
+    </div>
+  
+    <!-- Edit Mode (if editing) -->
+    <div *ngIf="isEditing">
+      <input type="text" [(ngModel)]="profileData.name" placeholder="Name">
+      <input type="email" [(ngModel)]="profileData.email" placeholder="Email">
+      <input type="text" [(ngModel)]="profileData.location" placeholder="Location">
+      <input type="text" [(ngModel)]="profileData.number" placeholder="Phone Number">
+      
+      <button (click)="saveProfile()">Save</button>
+      <button (click)="isEditing = false">Cancel</button>
+    </div>
+  </div>
+  

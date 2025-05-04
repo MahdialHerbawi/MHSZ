@@ -1,0 +1,26 @@
+<div class="admin-profile">
+    <h2>Admin Profile</h2>
+  
+    <!-- View Mode -->
+    <div *ngIf="!isEditing">
+      <p><strong>Name:</strong> {{ profileData.name || 'Not Provided' }}</p>
+      <p><strong>Email:</strong> {{ profileData.email || 'Not Provided' }}</p>
+      <p><strong>Location:</strong> {{ profileData.location || 'Amman ' }}</p>
+      <p><strong>Phone Number:</strong> {{ profileData.phoneNumber || 'Not Provided' }}</p>
+  
+      <button (click)="editProfile()">Edit</button>
+      <button (click)="deleteProfile()">Delete Profile</button>
+    </div>
+  
+    <!-- Edit Mode -->
+    <div *ngIf="isEditing">
+      <input type="text" [(ngModel)]="profileData.name" placeholder="Name">
+      <input type="email" [(ngModel)]="profileData.email" placeholder="Email">
+      <input type="text" [(ngModel)]="profileData.location" placeholder="Location">
+      <input type="text" [(ngModel)]="profileData.phoneNumber" placeholder="Phone Number">
+  
+      <button (click)="saveProfile()">Save</button>
+      <button (click)="isEditing = false">Cancel</button>
+    </div>
+  </div>
+  

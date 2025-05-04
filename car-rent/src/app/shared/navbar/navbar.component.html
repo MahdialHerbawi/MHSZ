@@ -1,0 +1,45 @@
+<nav class="navbar">
+    <div class="navbar-brand">
+      <a routerLink="/">Car Rental & Purchase</a>
+    </div>
+  
+    <div class="navbar-links" *ngIf="isLoggedIn(); else guestLinks">
+      <ng-container [ngSwitch]="getUserRole()">
+        
+        <div style="margin: 10PX;" *ngSwitchCase="'admin'">
+          <a style="margin: 10PX;" href="/admin/dashboard">Dashboard</a>
+          <a style="margin: 10PX;"  href="/admin/profile">Profile</a>
+          <a style="margin: 10PX;"  href="/admin/manage-cars">Car Rental & Purchase</a>
+          <button (click)="logout()">Logout</button>
+        </div>
+  
+        <div *ngSwitchCase="'client'">
+          <a style="margin: 10PX;"  href="/client/dashboard">Dashboard</a>
+          <a style="margin: 10PX;"  href="/client/profile">Profile</a>
+          <a style="margin: 10PX;"  href="/client/manage-purchases">Purchase</a>
+          <a style="margin: 10PX;"  href="/client/manage-rentals">Rental</a>
+          <a style="margin: 10PX;"  href="/client/add-rental">add-rental</a>
+          <a style="margin: 10PX;"  href="/client/add-purchase">add-purchase</a>
+          <button (click)="logout()">Logout</button>
+        </div>
+  
+        <div *ngSwitchCase="'customer'">
+          <a style="margin: 10PX;"  href="/customer/dashboard">Dashboard</a>
+          <a style="margin: 10PX;"  href="/customer/profile">Profile</a>
+          <a style="margin: 10PX;"  href="/customer/browse-purchase">Purchase</a>
+          <a style="margin: 10PX;"  href="/customer/browse-rentals">Rental</a>
+          <a style="margin: 10PX;"  href="/customer/my-rentals">my-rentals</a>
+          <a style="margin: 10PX;"  href="/customer/my-purchase">my-purchase</a>
+          <button (click)="logout()">Logout</button>
+        </div>
+  
+      </ng-container>
+    </div>
+  
+    <ng-template #guestLinks>
+      <div>
+        <a href="/auth/login">Login</a>
+        <a href="/auth/signup">Sign Up</a>
+      </div>
+    </ng-template>
+  </nav>

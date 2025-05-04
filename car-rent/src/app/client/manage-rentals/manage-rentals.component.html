@@ -1,0 +1,8 @@
+<h2>Manage Rent Requests</h2>
+<div *ngFor="let car of cars">
+  <div class="card">
+    <p>{{ car.carname }} - Status: {{ car.status }}</p>
+    <button (click)="updateStatus(car.id, 'approved')" [disabled]="car.status !== 'available'">Approve</button>
+    <button (click)="updateStatus(car.id, 'rejected')" [disabled]="car.status !== 'available'">Reject</button>
+  </div>
+</div>

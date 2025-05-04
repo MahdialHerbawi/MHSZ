@@ -1,0 +1,9 @@
+<div class="rent-car-form">
+    <h2>Rent a Car</h2>
+    <input type="text" [(ngModel)]="rentCarData.carname" placeholder="Car Name">
+    <input type="date" [(ngModel)]="rentCarData.rentDate" placeholder="Rent Date">
+    <input type="date" [(ngModel)]="rentCarData.returnDate" placeholder="Return Date">
+    <input type="text" [(ngModel)]="rentCarData.price" placeholder="Price">
+    <input type="text" [(ngModel)]="rentCarData.customerName" placeholder="Customer Name">
+    <button (click)="rentCar()">Rent Car</button>
+  </div>
