@@ -1,0 +1,31 @@
+<div class="car-form-container">
+    <h2>Add New Car</h2>
+    <form (ngSubmit)="addCar()" #carForm="ngForm">
+      <label>Model:</label>
+      <input type="text" [(ngModel)]="car.model" name="model" required />
+  
+      <label>Year:</label>
+      <input type="number" [(ngModel)]="car.year" name="year" required min="1990" />
+  
+      <label>Price:</label>
+      <input type="number" [(ngModel)]="car.price" name="price" required min="0" />
+  
+      <label>Type:</label>
+      <select [(ngModel)]="car.type" name="type" required>
+        <option value="rent">Rent</option>
+        <option value="purchase">Purchase</option>
+      </select>
+  
+      <label>Available:</label>
+      <select [(ngModel)]="car.available" name="available" required>
+        <option [ngValue]="true">Yes</option>
+        <option [ngValue]="false">No</option>
+      </select>
+  
+      <label>Description:</label>
+      <textarea [(ngModel)]="car.description" name="description" rows="4" required></textarea>
+  
+      <button type="submit" [disabled]="!carForm.valid">Add Car</button>
+    </form>
+  </div>
+  

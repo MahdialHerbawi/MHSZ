@@ -1,0 +1,16 @@
+<h2>Make Payment</h2>
+
+<div *ngIf="approvedRequests.length === 0">No approved requests available.</div>
+
+<div *ngFor="let request of approvedRequests" class="payment-card">
+  <h3>{{ carMap[request.carId].model }} - {{ carMap[request.carId].price }}</h3>
+  <p><strong>Request Type:</strong> {{ request.type | titlecase }}</p>
+
+  <button
+    *ngIf="!isPaid(request.id)"
+    (click)="makePayment(request.id)">
+    Pay Now
+  </button>
+
+  <span *ngIf="isPaid(request.id)" class="paid-status">✅ Paid</span>
+</div>

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+// src/global/theme.scss
+@font-face {
+    font-family: 'Exo 2';
+    src: url(/fonts/Exo2-VariableFont_wght.ttf);
+}
+// Colors
+$background-dark: #0e0e2c;
+$card-dark: #1f2937;
+$text-primary: #dbeafe;
+$text-secondary: #9ca3af;
+$accent-blue: #0c2863;
+$hover-blue: #a5adb9;
+
+// Font
+$font-family-main: 'Poppins', sans-serif;
+$font-family-title: 'Exo 2', sans-serif;
+
+
+// Transitions
+$transition-smooth: all 0.3s ease;
+
+body {
+    margin : 0px;
+}

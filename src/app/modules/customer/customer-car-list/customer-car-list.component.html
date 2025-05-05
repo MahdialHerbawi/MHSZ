@@ -1,0 +1,27 @@
+<div class="customer-car-list">
+  <h2>Available Cars</h2>
+
+  <div *ngIf="cars.length === 0">
+    <p>No cars available at the moment.</p>
+  </div>
+
+  <div class="car-card" *ngFor="let car of cars">
+    <div class="car-info">
+      <h3>{{ car.model }} ({{ car.year }})</h3>
+      <p><strong>Type:</strong> {{ car.type }}</p>
+      <p><strong>Price:</strong> ${{ car.price }}</p>
+      <p><strong>Description:</strong> {{ car.description }}</p>
+    </div>
+
+    <div *ngIf="!hasRequest(car.id)">
+      <button (click)="sendRequest(car, 'rent')">Request Rent</button>
+      <button (click)="sendRequest(car, 'purchase')">Request Purchase</button>
+    </div>
+
+    <div *ngIf="hasRequest(car.id)">
+      <p><strong>Status:</strong>
+        <span [ngClass]="hasRequest(car.id).status">{{ hasRequest(car.id).status }}</span>
+      </p>
+    </div>
+  </div>
+</div>

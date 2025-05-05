@@ -1,0 +1,29 @@
+<h2>View Client's Cars</h2>
+
+<select [(ngModel)]="selectedClientId" (change)="onSelectClient()">
+  <option [ngValue]="null">-- Select Client --</option>
+  <option *ngFor="let client of clients" [ngValue]="client.id">
+    {{ client.name }}
+  </option>
+</select>
+
+<table *ngIf="clientCars.length > 0">
+  <thead>
+    <tr>
+      <th>CarName</th>
+      <th>Model</th>
+      <th>Price</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of clientCars">
+      <td>{{ car.model }}</td>
+      <td>{{ car.year }}</td>
+      <td>{{ car.price }}</td>
+      <td>{{ car.type }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="selectedClientId && clientCars.length === 0">No cars found for this client.</p>

@@ -1,0 +1,29 @@
+.car-details-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fefefe;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  p {
+    margin: 0.5rem 0;
+  }
+  
+  button {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-back {
+    margin-left: 1rem;
+    color: #333;
+    text-decoration: underline;
+  }
+  

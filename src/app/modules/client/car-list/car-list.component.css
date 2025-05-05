@@ -1,0 +1,64 @@
+.car-list-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 2rem;
+  }
+  
+  .no-cars {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .no-cars .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    background-color: #007bff;
+    padding: 0.6rem 1.2rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+  
+  .car-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .car-details h3 {
+    margin: 0 0 0.5rem;
+  }
+  
+  .car-details p {
+    margin: 0.3rem 0;
+  }
+  
+  .car-actions button {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .car-actions button:hover {
+    background-color: #218838;
+  }
+  

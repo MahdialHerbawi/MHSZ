@@ -1,0 +1,10 @@
+<nav class="navbar">
+    <div class="logo">🚗 CarSys</div>
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active">Home</a>
+      <a *ngIf="!currentUser" routerLink="/login" routerLinkActive="active">Login</a>
+      <a *ngIf="!currentUser" routerLink="/register" routerLinkActive="active">Register</a>
+      <a *ngIf="currentUser" (click)="logout()">Logout</a>
+    </div>
+  </nav>
+  

@@ -1,0 +1,76 @@
+.customer-car-list {
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+  
+  .car-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .car-info h3 {
+    margin-top: 0;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+  .customer-car-list {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  .car-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .car-info h3 {
+    margin: 0;
+  }
+  
+  button {
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  span.pending {
+    color: #ffc107;
+    font-weight: bold;
+  }
+  
+  span.approved {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  span.rejected {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  

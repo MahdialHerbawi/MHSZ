@@ -1,0 +1,33 @@
+<div class="dashboard-container">
+    <aside class="sidebar">
+      <h2>Customer Zone</h2>
+      <nav>
+        <a routerLink="/customer/profile" routerLinkActive="active">profile</a>
+        <a routerLink="/customer/car-list" routerLinkActive="active">View Cars</a>
+        <a routerLink="/customer/my-request" routerLinkActive="active">My Requests</a>
+        <a routerLink="/customer/payment" routerLinkActive="active">Payments</a>
+        <a routerLink="/auth/login">Logout</a>
+      </nav>
+    </aside>
+  
+    <main class="main-content">
+      <header class="main-header">
+        <div class="user-info">
+          <span>{{ currentUser?.name }}</span>
+          <img src="assets/customer.png" alt="Customer" />
+        </div>
+      </header>
+  
+      <section class="content">
+        <div class="dashboard-container1">
+          <h2>Welcome, Customer!</h2>
+          <p>Use the menu to explore available cars and request rent/purchase.</p>
+          <a routerLink="/customer/car-list" class="btn">View Available Cars</a>
+        </div>
+        <router-outlet></router-outlet>
+      </section>
+    </main>
+  </div>
+  
+  
+    

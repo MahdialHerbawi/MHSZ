@@ -1,0 +1,20 @@
+<div class="client-request-container">
+    <h2>Customer Requests</h2>
+  
+    <div *ngIf="requests.length === 0">
+      <p>No requests available.</p>
+    </div>
+  
+    <div class="request-card" *ngFor="let request of requests">
+      <p><strong>Customer:</strong> {{ request.customerName }}</p>
+      <p><strong>Car:</strong> {{ request.carModel }}</p>
+      <p><strong>Type:</strong> {{ request.type }}</p>
+      <p><strong>Status:</strong> {{ request.status }}</p>
+  
+      <div *ngIf="request.status === 'pending'">
+        <button (click)="updateStatus(request.id, 'approved')">Approve</button>
+        <button (click)="updateStatus(request.id, 'rejected')">Reject</button>
+      </div>
+    </div>
+  </div>
+  

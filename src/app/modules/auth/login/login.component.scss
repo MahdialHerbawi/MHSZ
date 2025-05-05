@@ -1,0 +1,312 @@
+@import '../../../../styles.scss';
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.95),
+    rgba(15, 23, 42, 0.95)
+  ),
+  url('/Black_Audi_Spyder.webp') center/cover no-repeat;
+  font-family: $font-family-main;
+}
+
+.login-container {
+background-color: $card-dark;
+padding: 2rem 2.5rem;
+border-radius: 20px;
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+width: 100%;
+max-width: 400px;
+text-align: center;
+animation: fadeIn 0.8s ease forwards;
+
+.logo {
+  width: 120px;
+  margin-bottom: 0.7rem;
+}
+
+.button-text {
+  font-family: $font-family-title;
+  font-weight: 400 !important;
+}
+
+h2 {
+  font-family: $font-family-title;
+  color: $text-primary;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    width: 100%;
+
+    label {
+      color: $text-secondary;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      background-color: $background-dark;
+      border: 1px solid $card-dark;
+      color: $text-primary;
+      padding: 0.75rem;
+      border-radius: 8px;
+      transition: $transition-smooth;
+      font-size: 1rem;
+
+      &:focus {
+        border-color: $accent-blue;
+        outline: none;
+      }
+    }
+  }
+
+  button {
+    background-color: $accent-blue;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: $transition-smooth;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: $hover-blue;
+    }
+
+    &:disabled {
+      background-color: #3b3b3b;
+      cursor: not-allowed;
+    }
+  }
+
+  .error-message {
+    color: #a63232;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+.divider {
+  margin: 1.5rem 0;
+  color: $text-secondary;
+  font-size: 0.9rem;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: $text-secondary;
+  }
+
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+}
+
+.signup-text {
+  color: $text-secondary;
+  font-size: 0.9rem;
+
+  a {
+    color: $hover-blue;
+    text-decoration: none;
+    transition: $transition-smooth;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+}
+
+@keyframes fadeIn {
+from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+@import '../../../../styles.scss';
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.95),
+    rgba(15, 23, 42, 0.95)
+  ),
+  url('/Black_Audi_Spyder.webp') center/cover no-repeat;
+  font-family: $font-family-main;
+}
+
+.login-container {
+background-color: $card-dark;
+padding: 2rem 2.5rem;
+border-radius: 20px;
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+width: 100%;
+max-width: 400px;
+text-align: center;
+animation: fadeIn 0.8s ease forwards;
+
+.logo {
+  width: 120px;
+  margin-bottom: 0.7rem;
+}
+
+.button-text {
+  font-family: $font-family-title;
+  font-weight: 400 !important;
+}
+
+h2 {
+  font-family: $font-family-title;
+  color: $text-primary;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    width: 100%;
+
+    label {
+      color: $text-secondary;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      background-color: $background-dark;
+      border: 1px solid $card-dark;
+      color: $text-primary;
+      padding: 0.75rem;
+      border-radius: 8px;
+      transition: $transition-smooth;
+      font-size: 1rem;
+
+      &:focus {
+        border-color: $accent-blue;
+        outline: none;
+      }
+    }
+  }
+
+  button {
+    background-color: $accent-blue;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: $transition-smooth;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: $hover-blue;
+    }
+
+    &:disabled {
+      background-color: #3b3b3b;
+      cursor: not-allowed;
+    }
+  }
+
+  .error-message {
+    color: #a63232;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+.divider {
+  margin: 1.5rem 0;
+  color: $text-secondary;
+  font-size: 0.9rem;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: $text-secondary;
+  }
+
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+}
+
+.signup-text {
+  color: $text-secondary;
+  font-size: 0.9rem;
+
+  a {
+    color: $hover-blue;
+    text-decoration: none;
+    transition: $transition-smooth;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+}
+
+@keyframes fadeIn {
+from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}

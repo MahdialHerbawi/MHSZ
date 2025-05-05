@@ -1,0 +1,12 @@
+<div class="car-details-container" *ngIf="car">
+    <h2>{{ car.model }} ({{ car.year }})</h2>
+  
+    <p><strong>Price:</strong> ${{ car.price }}</p>
+    <p><strong>Type:</strong> {{ car.type }}</p>
+    <p><strong>Status:</strong> {{ car.available ? 'Available' : 'Not Available' }}</p>
+    <p><strong>Description:</strong> {{ car.description }}</p>
+  
+    <button (click)="requestCar(car)">Request {{ car.type }}</button>
+    <a routerLink="/customer/cars" class="btn-back">Back</a>
+  </div>
+      

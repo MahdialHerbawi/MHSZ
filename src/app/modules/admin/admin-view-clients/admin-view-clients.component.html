@@ -1,0 +1,18 @@
+<h2>Registered Clients</h2>
+
+<table *ngIf="clients.length > 0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{ client.name }}</td>
+      <td>{{ client.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="clients.length === 0">No clients registered.</p>

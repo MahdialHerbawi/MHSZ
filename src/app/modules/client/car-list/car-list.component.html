@@ -1,0 +1,23 @@
+<h2>Your Cars</h2>
+
+<div class="car-grid">
+  <div *ngFor="let car of clientCars" class="car-card">
+    <h3>{{ car.make }} {{ car.model }}</h3>
+    <p>Price: ${{ car.price }}</p>
+
+    <button (click)="editCar(car)">Edit</button>
+    <button (click)="deleteCar(car.id)">Delete</button>
+  </div>
+</div>
+
+<!-- Edit Form Modal (inline or popup) -->
+<div *ngIf="editMode" class="edit-form">
+  <h3>Edit Car</h3>
+  <form (ngSubmit)="updateCar()">
+    <input type="text" [(ngModel)]="carData.Your" name="make" required />
+    <input type="text" [(ngModel)]="carData.model" name="model" required />
+    <input type="number" [(ngModel)]="carData.price" name="price" required />
+    <button type="submit">Update</button>
+    <button (click)="cancelEdit()" type="button">Cancel</button>
+  </form>
+</div>

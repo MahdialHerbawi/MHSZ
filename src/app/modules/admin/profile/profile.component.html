@@ -1,0 +1,8 @@
+<h2>My Profile</h2>
+<form (ngSubmit)="updateProfile()" *ngIf="user">
+  <input type="text" [(ngModel)]="user.username" name="username" required placeholder="Username" />
+  <input type="password" [(ngModel)]="user.password" name="password" required placeholder="Password" />
+  <input type="number" placeholder="age" [(ngModel)]="user.age" name="age" required />
+  <input type="number" placeholder="phonenumber" [(ngModel)]="user.phonenumber" name="phonenumber" required />
+  <button type="submit">Update</button>
+</form>

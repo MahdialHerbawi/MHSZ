@@ -1,0 +1,26 @@
+.payment-card {
+    background: #fafafa;
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+  }
+  
+  button {
+    background: #28a745;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #218838;
+  }
+  
+  .paid-status {
+    color: green;
+    font-weight: bold;
+  }
+  

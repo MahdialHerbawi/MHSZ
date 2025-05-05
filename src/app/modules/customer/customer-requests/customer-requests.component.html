@@ -1,0 +1,13 @@
+<h2>Your Requests</h2>
+
+<div *ngIf="requests.length === 0">No requests found.</div>
+
+<div *ngFor="let request of requests" class="request-card">
+  <h3> CarName: {{ carMap[request.carId].model }} </h3>
+  <p><strong>Type:</strong> {{ request.type | titlecase }}</p>
+  <p><strong>price:</strong> {{ carMap[request.carId].price }}jd</p>
+  <p>
+    <strong>Status:</strong>
+    <span [class]="request.status">{{ request.status | titlecase }}</span>
+  </p>
+</div>

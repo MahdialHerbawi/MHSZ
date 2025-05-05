@@ -1,0 +1,13 @@
+<h2>Pending Client Approvals</h2>
+
+<div *ngIf="pendingClients.length === 0">
+  <p>No pending clients.</p>
+</div>
+
+<div *ngFor="let client of pendingClients" class="client-card">
+  <p><strong>Name:</strong> {{ client.name }}</p>
+  <p><strong>Email:</strong> {{ client.email }}</p>
+
+  <button class="approve" (click)="approveClient(client.id)">Approve</button>
+  <button class="reject" (click)="rejectClient(client.id)">Reject</button>
+</div>
