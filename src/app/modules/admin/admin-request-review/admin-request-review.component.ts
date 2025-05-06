@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-admin-request-review',
   templateUrl: './admin-request-review.component.html',
   standalone:false,
-  styleUrl:'admin-request-review.component.css'
+  styleUrl:'admin-request-review.component.scss'
 })
 export class AdminRequestReviewComponent implements OnInit {
   pendingClients: User[]|any = [];

@@ -1,0 +1,19 @@
+@import '../../../styles.scss';
+
+
+
+h1 {
+    font-family: $font-family-title;
+    font-size: 2.5rem;
+    color: 	#D2042D;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+p , a {
+    font-family: $font-family-title;
+    color: $text-secondary;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}

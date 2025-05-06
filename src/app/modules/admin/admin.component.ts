@@ -5,7 +5,7 @@ import { User, AuthService } from '../../services/auth.service';
   selector: 'app-admin',
   standalone: false,
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  styleUrl: './admin.component.scss'
 })
 export class AdminComponent {
  pendingClients: User[] = [];

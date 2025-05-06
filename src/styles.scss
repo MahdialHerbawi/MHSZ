@@ -23,5 +23,24 @@ $font-family-title: 'Exo 2', sans-serif;
 $transition-smooth: all 0.3s ease;
 
 body {
-    margin : 0px;
-}
+    margin: 0;
+    padding: 0;
+    background-color: lighten($background-dark, 5%);
+    min-height: 100vh;
+    color: $text-primary;
+    font-family: 'Poppins', sans-serif;
+  
+    // This ensures all child elements inherit the dark background
+    * {
+      box-sizing: border-box;
+      &::before, &::after {
+        box-sizing: border-box;
+      }
+    }
+  }
+  
+  // Remove any default white spaces
+  html, body {
+    width: 100%;
+    overflow-x: hidden; // Prevents horizontal scrollbars
+  }

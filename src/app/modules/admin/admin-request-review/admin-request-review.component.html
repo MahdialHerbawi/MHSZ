@@ -1,13 +1,39 @@
-<h2>Pending Client Approvals</h2>
+<div class="admin-container">
+  <div class="admin-header">
+    <h2 class="admin-title">PENDING CLIENT APPROVALS</h2>
+    <!-- <div class="admin-actions">
+      <button class="refresh-btn" (click)="refreshPendingClients()">
+        <i class="fas fa-sync-alt"></i> REFRESH
+      </button>
+    </div> -->
+  </div>
 
-<div *ngIf="pendingClients.length === 0">
-  <p>No pending clients.</p>
-</div>
+  <div *ngIf="pendingClients.length === 0" class="no-pending">
+    <i class="fas fa-check-circle"></i>
+    <p>No pending client approvals</p>
+  </div>
 
-<div *ngFor="let client of pendingClients" class="client-card">
-  <p><strong>Name:</strong> {{ client.name }}</p>
-  <p><strong>Email:</strong> {{ client.email }}</p>
-
-  <button class="approve" (click)="approveClient(client.id)">Approve</button>
-  <button class="reject" (click)="rejectClient(client.id)">Reject</button>
+  <div class="approval-grid" *ngIf="pendingClients.length > 0">
+    <div *ngFor="let client of pendingClients" class="approval-card">
+      <div class="client-info">
+        <div class="client-avatar">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="client-details">
+          <h3>{{ client.name }}</h3>
+          <p><i class="fas fa-envelope"></i> {{ client.email }}</p>
+          <p *ngIf="client.requestDate"><i class="fas fa-calendar-alt"></i> Requested on: {{ client.requestDate | date:'mediumDate' }}</p>
+        </div>
+      </div>
+      
+      <div class="approval-actions">
+        <button class="approve-btn" (click)="approveClient(client.id)">
+          <i class="fas fa-check"></i> Approve
+        </button>
+        <button class="reject-btn" (click)="rejectClient(client.id)">
+          <i class="fas fa-times"></i> Reject
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

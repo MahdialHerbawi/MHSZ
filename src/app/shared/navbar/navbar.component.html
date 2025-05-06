@@ -1,10 +1,46 @@
-<nav class="navbar">
-    <div class="logo">🚗 CarSys</div>
-    <div class="nav-links">
-      <a routerLink="/" routerLinkActive="active">Home</a>
-      <a *ngIf="!currentUser" routerLink="/login" routerLinkActive="active">Login</a>
-      <a *ngIf="!currentUser" routerLink="/register" routerLinkActive="active">Register</a>
-      <a *ngIf="currentUser" (click)="logout()">Logout</a>
+<nav class="navbar" *ngIf="shouldShowNavbar()">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a [routerLink]="getDashboardLink()" class="brand-link">
+        <img src="/Car_Logo_White-Photoroom.png" alt="Car Rental Logo" class="logo" />
+      </a>
     </div>
-  </nav>
-  
+
+    <!-- Mobile menu button -->
+    <button class="mobile-menu-button" (click)="toggleMobileMenu()" *ngIf="isLoggedIn()">
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+    </button>
+
+    <div class="navbar-links" [class.mobile-menu-active]="mobileMenuActive" *ngIf="isLoggedIn()">
+      <ng-container [ngSwitch]="getUserRole()">
+        <!-- Admin Links -->
+        <div *ngSwitchCase="'admin'" class="link-group">
+          <a routerLink="/admin/profile" class="nav-link" (click)="closeMobileMenu()">PROFILE</a>
+          <button (click)="logout(); closeMobileMenu()" class="logout-button">SIGN OUT</button>
+        </div>
+
+        <!-- Client Links -->
+        <div *ngSwitchCase="'client'" class="link-group">
+          <a routerLink="/client/profile" class="nav-link" (click)="closeMobileMenu()">PROFILE</a>
+          <a routerLink="/client/manage-purchases" class="nav-link" (click)="closeMobileMenu()">PURCHASES</a>
+          <a routerLink="/client/manage-rentals" class="nav-link" (click)="closeMobileMenu()">RENTALS</a>
+          <a routerLink="/client/add-rental" class="nav-link" (click)="closeMobileMenu()">ADD RENTAL</a>
+          <a routerLink="/client/add-purchase" class="nav-link" (click)="closeMobileMenu()">ADD PURCHASE</a>
+          <button (click)="logout(); closeMobileMenu()" class="logout-button">SIGN OUT</button>
+        </div>
+
+        <!-- Customer Links -->
+        <div *ngSwitchCase="'customer'" class="link-group">
+          <a routerLink="/customer/profile" class="nav-link" (click)="closeMobileMenu()">PROFILE</a>
+          <a routerLink="/customer/browse-purchase" class="nav-link" (click)="closeMobileMenu()">PURCHASES</a>
+          <a routerLink="/customer/browse-rentals" class="nav-link" (click)="closeMobileMenu()">RENTALS</a>
+          <a routerLink="/customer/my-rentals" class="nav-link" (click)="closeMobileMenu()">MY RENTALS</a>
+          <a routerLink="/customer/my-purchase" class="nav-link" (click)="closeMobileMenu()">MY PURCHASES</a>
+          <button (click)="logout(); closeMobileMenu()" class="logout-button">SIGN OUT</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</nav>

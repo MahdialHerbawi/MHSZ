@@ -6,7 +6,7 @@ import { AuthService, User } from '../../../services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['./register.component.scss'],
   standalone:false
 })
 export class RegisterComponent {
@@ -16,6 +16,7 @@ export class RegisterComponent {
   role: 'client' | 'customer' = 'client'; // Choose role
   errorMessage = '';
   successMessage = '';
+  isLoading = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 

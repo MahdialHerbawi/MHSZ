@@ -5,7 +5,7 @@ import { User } from '../../../models/users.model';
 @Component({
   selector: 'app-admin-view-clients',
   templateUrl: './admin-view-clients.component.html',
-  styleUrls: ['./admin-view-clients.component.css'],
+  styleUrls: ['./admin-view-clients.component.scss'],
   standalone:false
 })
 export class AdminViewClientsComponent implements OnInit {

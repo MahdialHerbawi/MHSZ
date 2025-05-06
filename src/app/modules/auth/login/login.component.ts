@@ -13,7 +13,6 @@ export class LoginComponent {
   email = '';
   password = '';
   errorMessage = '';
-  auth: any;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -31,11 +30,6 @@ export class LoginComponent {
     }
     const result = this.authService.login(this.email, this.password);
     if (result.success) {
-      localStorage.setItem('token', 'dummy-token');
-      localStorage.setItem('role', result.user?.role || '');
-      localStorage.setItem('email', result.user?.email || '');
-      this.auth.login(result.user);
-
       if (result.user?.role === 'admin') {
         this.router.navigate(['/admin/requests']);
       } else if (result.user?.role === 'client') {
@@ -45,6 +39,6 @@ export class LoginComponent {
       }
     } else {
       this.errorMessage = result.message;
-    }
-  }
+    }
+  }
 }

@@ -1,18 +1,38 @@
-<h2>Registered Clients</h2>
+<div class="admin-container">
+  <div class="admin-header">
+    <h2 class="admin-title">REGISTERED CLIENTS</h2>
+    
+  </div>
 
-<table *ngIf="clients.length > 0">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let client of clients">
-      <td>{{ client.name }}</td>
-      <td>{{ client.email }}</td>
-    </tr>
-  </tbody>
-</table>
+  <div class="table-container">
+    <table *ngIf="clients.length > 0" class="clients-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <td>
+            <div class="client-avatar">
+              <i class="fas fa-user-circle"></i>
+              {{ client.name }}
+            </div>
+          </td>
+          <td>{{ client.email }}</td>
+          
+          
+         
+        </tr>
+      </tbody>
+    </table>
 
-<p *ngIf="clients.length === 0">No clients registered.</p>
+    <div *ngIf="clients.length === 0" class="no-clients">
+      <i class="fas fa-users-slash"></i>
+      <p>No clients registered</p>
+      
+    </div>
+  </div>
+</div>

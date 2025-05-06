@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import '../../../../styles.scss';
+
+body {
+    margin: 0;
+    background: $background-dark;
+    color: $text-primary;
+    font-family: $font-family-main;
+    min-height: 100vh;
+  }
+  
+  // Add this to ensure all text uses the correct color by default
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    color: $text-primary;
+  }
+  
+  // Optional: Style scrollbars for dark theme
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: darken($background-dark, 5%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: $accent-blue;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: lighten($accent-blue, 10%);
+  }
+
+.profile-container {
+    
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: $card-dark;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: $font-family-main;
+  color: $text-primary;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 
+              0 0 40px rgba(79, 70, 229, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-title {
+  font-family: $font-family-title;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(90deg, #4f46e5, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition-smooth;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    background: linear-gradient(135deg, #4338ca, #6d28d9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  }
+}
+
+.profile-info-card {
+  background: lighten($card-dark, 5%);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.info-label {
+  font-weight: 500;
+  color: $text-secondary;
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-weight: 400;
+  color: $text-primary;
+}
+
+.profile-edit-form {
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: $text-secondary;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background: lighten($card-dark, 8%) !important;
+    color: $text-primary !important;
+    font-family: $font-family-main;
+    transition: $transition-smooth;
+    
+    &:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    }
+    
+    &::placeholder {
+        color: rgba($text-secondary, 0.6) !important;
+    }
+  }
+  
+  .password-input-container {
+    position: relative;
+    
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: $text-secondary;
+      cursor: pointer;
+      transition: $transition-smooth;
+      
+      &:hover {
+        color: $text-primary;
+      }
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  
+  .cancel-btn {
+    background: transparent;
+    color: $text-secondary;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-smooth;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: $text-primary;
+    }
+  }
+  
+  .submit-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-smooth;
+    
+    &:hover {
+      background: linear-gradient(135deg, #0d9e71, #047857);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+  }
+}
+
+// Phone number formatting pipe (add to your component)
+.phone-format {
+  unicode-bidi: bidi-override;
+}
