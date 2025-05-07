@@ -1,8 +1,91 @@
-<h2>My Profile</h2>
-<form (ngSubmit)="updateProfile()" *ngIf="user">
-  <input type="text" [(ngModel)]="user.username" name="username" required placeholder="Username" />
-  <input type="password" [(ngModel)]="user.password" name="password" required placeholder="Password" />
-  <input type="number" placeholder="age" [(ngModel)]="user.age" name="age" required />
-  <input type="number" placeholder="phonenumber" [(ngModel)]="user.phonenumber" name="phonenumber" required />
-  <button type="submit">Update</button>
-</form>
+<div class="profile-page-container">
+<div class="profile-container">
+  <div class="profile-header">
+    <h2 class="profile-title">MY PROFILE</h2>
+    <button *ngIf="!isEditMode" class="edit-btn" (click)="toggleEditMode()">
+      <i class="fas fa-edit"></i> EDIT PROFILE
+    </button>
+  </div>
+
+  <div class="profile-content" *ngIf="user">
+    <!-- View Mode -->
+    <div class="profile-view" *ngIf="!isEditMode">
+      <div class="profile-picture-container">
+        <div class="profile-picture" [style.backgroundImage]="'url(' + (user.profilePicture || '/profile.jpg') + ')'">
+          <div class="picture-overlay" (click)="triggerFileInput()">
+            <i class="fas fa-camera"></i>
+            <span>Change Photo</span>
+          </div>
+        </div>
+        <input #fileInput type="file" (change)="handleFileInput($event)" accept="image/*" style="display: none;">
+      </div>
+
+      <div class="profile-info">
+        <div class="info-row">
+          <span class="info-label">Username:</span>
+          <span class="info-value">{{user.name}}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">E-mail:</span>
+          <span class="info-value">{{user.email}}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Password:</span>
+          <span class="info-value">••••••••</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Age:</span>
+          <span class="info-value">{{user.age}}</span>
+        </div>
+        <!-- <div class="info-row">
+          <span class="info-label">Phone Number:</span>
+          <span class="info-value">{{user.phonenumber | phoneFormat}}</span>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- Edit Mode -->
+    <form class="profile-edit" *ngIf="isEditMode" (ngSubmit)="updateProfile()">
+      <div class="profile-picture-container">
+        <div class="profile-picture" [style.backgroundImage]="'url(' + (tempProfilePicture || user.profilePicture || 'assets/images/default-profile.png') + ')'">
+          <div class="picture-overlay" (click)="triggerFileInput()">
+            <i class="fas fa-camera"></i>
+            <span>Change Photo</span>
+          </div>
+        </div>
+        <input #fileInput type="file" (change)="handleFileInput($event)" accept="image/*" style="display: none;">
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" [(ngModel)]="user.name" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-input">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" [(ngModel)]="user.password" name="password" required>
+          <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+            <i class="fas {{showPassword ? 'fa-eye-slash' : 'fa-eye'}}"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" [(ngModel)]="user.age" name="age" min="18" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phonenumber">Phone Number</label>
+        <input type="tel" id="phonenumber" [(ngModel)]="user.phonenumber" name="phonenumber" pattern="[0-9]{10}" required>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+        <button type="submit" class="save-btn">SAVE CHANGES</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

@@ -1,4 +1,74 @@
-<footer class="footer">
-    <p>&copy; 2025 Cars Management System. All rights reserved.</p>
-  </footer>
-  
+<!-- footer.component.html -->
+<footer class="footer" *ngIf="showFooter()">
+  <div class="footer-container">
+    <!-- Main Footer Content -->
+    <div class="footer-grid">
+      <!-- Company Info -->
+      <div class="footer-section">
+        <h3 class="footer-heading">
+          <span class="brand-gradient">Carent</span>
+        </h3>
+        <p class="footer-text">Premium vehicle rentals for the discerning client.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/hamza.momani.353/" class="social-link" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://guthib.com/" class="social-link" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/probablyhamza/" class="social-link" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/hamza-n-momani/" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h4 class="footer-subheading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/dashboard">Home</a></li>
+          <li><a routerLink="/inventory">Our Fleet</a></li>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section">
+        <h4 class="footer-subheading">Contact Us</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Premium Ave, Auto City</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-envelope"></i> contact&#64;carent.com</li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-section">
+        <h4 class="footer-subheading">Newsletter</h4>
+        <p class="footer-text">Subscribe for exclusive offers</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" class="newsletter-input">
+          <button type="submit" class="newsletter-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Copyright Bar -->
+    <div class="copyright-bar">
+      <div class="copyright-text">
+        &copy; {{ currentYear }} Carent. All rights reserved.
+      </div>
+      <div class="legal-links">
+        <a routerLink="/privacy">Privacy Policy</a>
+        <a routerLink="/terms">Terms of Service</a>
+        <a routerLink="/cookies">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

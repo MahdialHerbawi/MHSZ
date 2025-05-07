@@ -1,0 +1,272 @@
+@import '../../../../styles.scss';
+
+$background-dark: #0e062c;
+$card-dark: #1f2937;
+$accent-blue: #0c2863;
+$accent-gold: #f59e0b;
+$text-primary: #d1eafe;
+$text-secondary: #9ca3af;
+
+.profile-page-container {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; // Changed to flex-start to keep content at top
+    background: $background-dark;
+    
+    // This ensures the footer stays at bottom if you have one
+    box-sizing: border-box;
+  }
+
+.profile-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: $card-dark;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  font-family: $font-family-main;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-title {
+  font-family: $font-family-title;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(90deg, #4f46e5, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition-smooth;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    background: linear-gradient(135deg, #4338ca, #6d28d9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  }
+}
+
+.profile-content {
+  display: flex;
+  gap: 3rem;
+}
+
+.profile-picture-container {
+  flex: 0 0 180px;
+}
+
+.profile-picture {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: 4px solid rgba(79, 70, 229, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.picture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: $transition-smooth;
+  cursor: pointer;
+
+  i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  span {
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.profile-view {
+  display: flex;
+  gap: 3rem;
+  width: 100%;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.info-label {
+  font-weight: 500;
+  color: $text-secondary;
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-weight: 400;
+  color: $text-primary;
+}
+
+.profile-edit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 250px;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: $text-secondary;
+    font-weight: 500;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: lighten($card-dark, 8%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: $text-primary;
+    font-family: $font-family-main;
+    transition: $transition-smooth;
+
+    &:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    }
+  }
+}
+
+.password-input {
+  position: relative;
+
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: $transition-smooth;
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+
+  .cancel-btn {
+    background: transparent;
+    color: $text-secondary;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-smooth;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: $text-primary;
+    }
+  }
+
+  .save-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-smooth;
+
+    &:hover {
+      background: linear-gradient(135deg, #0d9e71, #047857);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-content,
+  .profile-view {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .profile-picture-container {
+    align-self: center;
+  }
+
+  .form-group {
+    flex: 1 1 100%;
+  }
+}

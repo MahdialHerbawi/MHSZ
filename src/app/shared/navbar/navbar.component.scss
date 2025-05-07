@@ -1,11 +1,13 @@
 @import '../../../styles.scss';
 
 .navbar {
-  background-color: $background-dark;
-  color: $text-primary;
-  position: sticky;
+  position: fixed; // Change from sticky to fixed
   top: 0;
-  z-index: 1000;
+  left: 0;
+  width: 100%; // Ensure it spans the full width of the viewport
+  z-index: 1000; // Keep it above other elements
+  background-color: $background-dark; // Ensure the background is solid to avoid transparency issues
+  color: $text-primary;
   font-family: $font-family-main;
   border-bottom: 1px solid rgba($accent-blue, 0.3);
 
@@ -17,6 +19,13 @@
     margin: 0 auto;
     padding: 0 20px;
     height: 60px;
+  }
+
+  .profile-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 10px;
   }
 
   .navbar-brand {

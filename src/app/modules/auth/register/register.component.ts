@@ -34,8 +34,16 @@ export class RegisterComponent {
     const success = this.authService.register(newUser);
 
     if (success) {
-      this.successMessage = 'Registration successful. Please wait for admin approval.';
-      this.errorMessage = '';
+      if (this.role === 'customer') {
+        this.successMessage = 'Registration successful!';
+        this.errorMessage = '';
+        setTimeout(() => {
+          this.router.navigate(['/auth/login']); // Redirect to login page after delay
+        }, 1500); // Redirect to login page
+      } else {
+        this.successMessage = 'Registration successful. Please wait for admin approval.';
+        this.errorMessage = '';
+      }
       this.name = this.email = this.password = '';
     } else {
       this.errorMessage = 'Email already registered.';

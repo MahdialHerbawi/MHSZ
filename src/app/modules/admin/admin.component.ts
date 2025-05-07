@@ -20,4 +20,21 @@ export class AdminComponent {
     this.pendingClients = users.filter(u => u.role === 'client' && u.status === 'pending');
   }
 }
+
+ngAfterViewInit(): void {
+  const chartBars = document.querySelectorAll('.chart-bar[data-animate]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    },
+    { threshold: 0.5 } // Trigger when 50% of the element is visible
+  );
+
+  chartBars.forEach((bar) => observer.observe(bar));
+}
 }

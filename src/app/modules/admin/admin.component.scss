@@ -9,6 +9,7 @@
   font-family: $font-family-main;
 
   .dashboard-header {
+    padding-top: 30px;
     margin-bottom: 2.5rem;
     
     .header-content {
@@ -227,6 +228,8 @@
               background: rgba($accent-blue, 0.3);
               border-radius: 4px 4px 0 0;
               position: relative;
+              transform: scaleY(0);
+              transition: transform 1s ease-out, opacity 1s ease-out;
               
               &::after {
                 content: '';
@@ -238,6 +241,10 @@
                 background: linear-gradient(to top, $accent-blue, $hover-blue);
                 border-radius: 4px 4px 0 0;
               }
+            }
+            .chart-bar.animated {
+              opacity: 1;
+              transform: scaleY(1);
             }
           }
           

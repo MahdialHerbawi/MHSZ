@@ -34,11 +34,10 @@
         <!-- Customer Links -->
         <div *ngSwitchCase="'customer'" class="link-group">
           <a routerLink="/customer/profile" class="nav-link" (click)="closeMobileMenu()">PROFILE</a>
-          <a routerLink="/customer/browse-purchase" class="nav-link" (click)="closeMobileMenu()">PURCHASES</a>
-          <a routerLink="/customer/browse-rentals" class="nav-link" (click)="closeMobileMenu()">RENTALS</a>
-          <a routerLink="/customer/my-rentals" class="nav-link" (click)="closeMobileMenu()">MY RENTALS</a>
-          <a routerLink="/customer/my-purchase" class="nav-link" (click)="closeMobileMenu()">MY PURCHASES</a>
+          <a routerLink="/customer/car-list" class="nav-link" (click)="closeMobileMenu()">OFFERS</a>
+          <a routerLink="/customer/my-request" class="nav-link" (click)="closeMobileMenu()">MY REQUESTS</a>
           <button (click)="logout(); closeMobileMenu()" class="logout-button">SIGN OUT</button>
+            <!-- <img src="/profile.jpg" alt="Customer" class="profile-image" /> -->
         </div>
       </ng-container>
     </div>
